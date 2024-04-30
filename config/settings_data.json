@@ -1,6 +1,24 @@
 {
   "current": "Default",
   "presets": {
-    "Default": { }
+    "Default": {
+      "logo_width": 90,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "black": "#000000",
+            "secondary-black": "#252525",
+            "main-gray": "#626262",
+            "secondary-gray": "#989898",
+            "white": "#FFFFFF",
+            "primary-green": "#339900",
+            "primary-red": "#EF3636",
+            "primary-yellow": "#F3C449"
+          }
+        }
+      }
+    }
   }
 }
+
+
