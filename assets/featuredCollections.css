@@ -1,0 +1,52 @@
+.featured_collections {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+    background-image: url('categories-decoration.png');
+    background-position: top top;
+    background-repeat: no-repeat;
+    background-size: 100% 50rem;
+}
+
+.featured_collections-title {
+    color: var(--primary-red);
+    font-size: 3.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.featured_collections-subtitle {
+    font-size: 1.5rem;
+    color: var(--secondary-gray);
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+.featured_card-container {
+    display: flex;
+    margin-top: 1.3rem;
+}
+
+.card {
+    flex: 1;
+    background-image: url('categegories-1.png');
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    aspect-ratio: 1/2;
+    background-repeat: no-repeat;
+    padding: 1rem;
+}
+
+.featured_card-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    text-transform: uppercase;
+}
+
+.featured_card-subtitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+}

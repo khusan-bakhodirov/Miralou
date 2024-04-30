@@ -1,0 +1,42 @@
+.header {
+    padding: 2rem 0;
+}
+.header_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_items {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.list_item {
+    text-decoration: none;
+    color: var(--black);
+    transition: 0.3s ease;
+}
+
+.list_item:hover {
+    color: var(--primary-red);
+}
+.icons_items {
+    display: flex;
+    gap: 2rem;
+}
+
+.header_icon {
+    width: 2rem;
+}
+
+.search_form {
+    display: flex;
+    align-items: center;
+}
+
+.search_input {
+    border: none;
+    border-bottom: 1px solid var(--black);
+    width: 60vw;
+}
