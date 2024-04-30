@@ -2,13 +2,13 @@
 <script src="{{ 'search.js' | asset_url }}" defer></script>
 
 <header class="header">
-    <div class="container header_container">
+    <div class="container flex-between">
         <img width="106" height="24" src="{{'logo.png' |  asset_img_url }}" alt="logo">
         <nav class="navigation">
             <ul class="list_items">
                 {% for item in linklists.main-menu.links %}
                     <li>
-                        <a class="list_item" href="{{item.url}}">{{item.title |  upcase}}</a>
+                        <a class="heading-6" href="{{item.url}}">{{item.title |  upcase}}</a>
                     </li>
                 {% endfor %}
             </ul>
