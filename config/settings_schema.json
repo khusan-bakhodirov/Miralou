@@ -13,11 +13,7 @@
       {
         "type": "image_picker",
         "id": "logo",
-        "label": "Choose the logo",
-        "default": {
-          "type": "image_picker",
-          "url": "{{ 'logo.png' | asset_url }}"
-        }
+        "label": "Choose the logo"
       },
       {
         "type": "range",
