@@ -43,9 +43,6 @@
             <div>
               {% if block.settings.title != blank %}
                 <h6 class="heading-6 red mb-1">{{ block.settings.title }}</h6>
-
-              {% else %}
-                <h6 class="heading-6 red mb-1">INFORMATION</h6>
               {% endif %}
               <ul class="flex flex-col gap-1">
                 {% for link in main_menu_linklist %}
@@ -79,13 +76,13 @@
               </h6>
               <ul class="flex flex-col gap-1">
                 <li>
-                  <a class="paragraph-4 white" href="#">2715 Ash Dr. San Jose, South Dakota 83475</a>
+                  <a class="paragraph-4 white" href="#">{{settings.address}}</a>
                 </li>
                 <li>
-                  <a class="paragraph-4 white" href="#">(808) 555-0111</a>
+                  <a class="paragraph-4 white" href="phone:{{settings.phone_number}}">{{settings.phone_number}}</a>
                 </li>
                 <li>
-                  <a class="paragraph-4 white" href="#">miralou.conacts@example.com</a>
+                  <a class="paragraph-4 white" href="mailto:{{settings.email}}">{{settings.email}}</a>
                 </li>
               </ul>
             </div>

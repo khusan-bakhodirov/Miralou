@@ -111,5 +111,25 @@
         }
       }
     ]
+  },
+  {
+    "name": "Contact Details",
+    "settings": [
+      {
+        "type": "text",
+        "id": "address",
+        "label": "Address"
+      },
+      {
+        "type": "text",
+        "id": "phone_number",
+        "label": "Phone Number"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email Address"
+      }
+    ]
   }
 ]
