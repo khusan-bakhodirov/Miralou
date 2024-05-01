@@ -1,40 +1,76 @@
-{{'featuredCollections.css' | asset_url |  stylesheet_tag}}
+{{ 'featuredCollections.css' | asset_url | stylesheet_tag }}
 
 <section class="featured_collections">
-    <div class="container featured_collections-container">
-        <h2 class="featured_collections-title">
-            shop by categories
-        </h2>
-        <p class="featured_collections-subtitle">
-            Pick a category you needs
-        </p>
-        
-        <div class="featured_card-container">
-            
-        <div class="card">
-            <h4 class="featured_card-title">
-                WOMEN
-            </h4>
-            <p class="featured_card-subtitle">
-                115 products
-            </p>
-        </div>
-        <div class="card">
-            <h4 class="featured_card-title">
-                WOMEN
-            </h4>
-            <p class="featured_card-subtitle">
-                115 products
-            </p>
-        </div>
-        <div class="card">
-            <h4 class="featured_card-title">
-                WOMEN
-            </h4>
-            <p class="featured_card-subtitle">
-                115 products
-            </p>
-        </div>
-        </div>
+  <div class="container featured_collections-container">
+    <h2 class="featured_collections-title">
+      {{ section.settings.title }}
+    </h2>
+    {% if section.settings.subtitle != blank %}
+      <p class="featured_collections-subtitle">
+        {{ section.settings.subtitle }}
+      </p>
+    {% else %}
+      <p class="featured_collections-subtitle">
+        Pick a category you needs
+      </p>
+    {% endif %}
+
+    <div class="featured_card-container">
+
+      {% for item in section.blocks %}
+        <a href="{{item.settings.collection_array.url}}" class="card">
+          <img
+            class="card_img"
+            width="auto"
+            height="auto"
+            src="{{item.settings.collection_image |  image_url }}"
+            alt="">
+          <h4 class="heading-4 uppercase red z-10 mt-1 mr-1">
+            {{ item.settings.collection_array.title }}
+          </h4>
+          <h6 class="heading-6 white uppercase z-10 mr-1">
+            {{ item.settings.collection_array.all_products_count }} products
+          </h6>
+        </a>
+      {% endfor %}
+
     </div>
+  </div>
 </section>
+
+{% schema %}
+  {
+    "name": "Collection Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "shop by categories"
+      }, {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "Subtitle"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection_array",
+            "label": "Choose collection"
+          }, {
+            "type": "image_picker",
+            "id": "collection_image",
+            "label": "Choose image"
+          }
+        ]
+      }
+    ]
+  }
+
+{% endschema %}
