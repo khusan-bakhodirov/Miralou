@@ -1,0 +1,33 @@
+<section class="featured_colletion">
+    <div class="container">
+        <h4 class="heading-4 uppercase">
+          {{section.settings.title}}
+        </h4>
+        <div class="grid-cols-4 gap-1">
+                {% for item in section.settings.featured_colection.products %}
+                    {% render 'product-card', product-item: item %}
+                {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+   {
+  "name": "Featured collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our products"
+    },
+    {
+        "type": "collection",
+        "id": "featured_colection",
+        "label": "featured collection",
+        "default": "men"
+    }
+  ]
+}
+
+{% endschema %}
