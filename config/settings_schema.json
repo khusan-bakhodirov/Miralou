@@ -32,6 +32,84 @@
         "info": "favicon"
       }
     ]
+  },
+  {
+    "name": "colors",
+    "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "color_schemes",
+        "definition": [
+          {
+            "type": "color",
+            "id": "black",
+            "label": "Black",
+            "default": "#000000"
+          },
+          {
+            "type": "color_background",
+            "id": "secondary_black",
+            "label": "Secondary Black"
+          },
+          {
+            "type": "color",
+            "id": "main_gray",
+            "label": "Main Gray",
+            "default": "#626262"
+          },
+          {
+            "type": "color",
+            "id": "secondary_gray",
+            "label": "Secondary Gray",
+            "default": "#989898"
+          },
+          {
+            "type": "color",
+            "id": "third_gray",
+            "label": "Third Gray",
+            "default": "#F6F6F6"
+          },
+          {
+            "type": "color",
+            "id": "white",
+            "label": "White",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "primary_green",
+            "label": "Primary Green",
+            "default": "#339900"
+          },
+          {
+            "type": "color",
+            "id": "primary_red",
+            "label": "Primary Red",
+            "default": "#EF3636"
+          },
+          {
+            "type": "color",
+            "id": "primary_yellow",
+            "label": "Primary Yellow",
+            "default": "#F3C449"
+          }
+        ],
+        "role": {
+          "text": "black",
+          "background": {
+            "solid": "white",
+            "gradient": "secondary_black"
+          },
+          "links": "secondary_gray",
+          "icons": "black",
+          "primary_button": "primary_green",
+          "on_primary_button": "white",
+          "primary_button_border": "primary_green",
+          "secondary_button": "white",
+          "on_secondary_button": "secondary_gray",
+          "secondary_button_border": "secondary_gray"
+        }
+      }
+    ]
   }
- 
 ]

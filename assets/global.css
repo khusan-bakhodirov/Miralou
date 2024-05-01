@@ -144,7 +144,7 @@ a:hover {
   cursor: pointer;
   width: fit-content;
 }
-.button_danger {
+.button_primary {
   background-color: var(--primary-red);
   color: var(--white);
   padding: 1rem 3rem;
@@ -159,6 +159,9 @@ a:hover {
 }
 .red {
   color: var(--primary-red);
+}
+.third-gray {
+  color: var(--third-gray);
 }
 /* GRIDS */
 

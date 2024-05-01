@@ -7,13 +7,14 @@
         "scheme-1": {
           "settings": {
             "black": "#000000",
-            "secondary-black": "#252525",
-            "main-gray": "#626262",
-            "secondary-gray": "#989898",
+            "secondary_black": "#252525",
+            "main_gray": "#626262",
+            "secondary_gray": "#989898",
             "white": "#FFFFFF",
-            "primary-green": "#339900",
-            "primary-red": "#EF3636",
-            "primary-yellow": "#F3C449"
+            "primary_green": "#339900",
+            "primary_red": "#EF3636",
+            "primary_yellow": "#F3C449",
+            "third_gray": "#F6F6F6"
           }
         }
       }

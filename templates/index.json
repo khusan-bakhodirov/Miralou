@@ -1,11 +1,11 @@
 {
     "sections": {
-        "banner": {
-            "type": "section-banner"
+        "hero": {
+            "type": "section-hero"
         },
         "featured-collections": {
             "type": "section-featured-collections"
         }
     },
-    "order": ["banner", "featured-collections"]
+    "order": ["hero", "featured-collections"]
 }

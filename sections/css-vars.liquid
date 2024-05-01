@@ -1,14 +1,18 @@
 {% style %}
+    {% for scheme in settings.color_schemes %}
     :root {
-      --black: #000000;
-      --secondary-black: #252525;
-      --main-gray: #626262;
-      --secondary-gray: #989898;
-      --third-gray: #F6F6F6;
-      --white: #FFFFFF;
-      --primary-red: #EF3636;
-      --primary-yellow: #F3C449;
-      --primary-green: #339900;
-    }
+        --black: {{scheme.settings.black}};
+        --secondary-black: {{scheme.settings.secondary_black}};
+        --main-gray: {{scheme.settings.main_gray}};
+        --secondary-gray: {{scheme.settings.secondary_gray}};
+        --third-gray: {{scheme.settings.third_gray}};
+        --white: {{scheme.settings.white}};
+        --primary-red: {{scheme.settings.primary_red}};
+        --primary-yellow: {{scheme.settings.primary_yellow}};
+        --primary-green: {{scheme.settings.primary_green}};
+      }
+{% endfor %}
+
 
 {% endstyle %}
+
