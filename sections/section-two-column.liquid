@@ -1,0 +1,68 @@
+{{'two-column.css' |  asset_url | stylesheet_tag}} 
+
+{% if section.settings.image_position == "right" %}
+    {% assign position = "row-reverse" %}
+{% endif %}
+<section class="two_column">
+    <div class="container">
+        <div class="two_column-card flex {{ position  }}">
+            <div class="two_column-img ">
+                {% if section.settings.image != blank %}
+                    <img class="img_item" src="{{section.settings.image |  image_url }}" width="auto" height="auto" alt="{{section.settings.title}}">
+                    {% else %}
+                    {{ 'collection-6' | placeholder_svg_tag: "placehoder_img" }}
+                {% endif %}
+            </div>      
+            <div class="two_column-text">
+                <h4 class="heading-4 red uppercase">
+                    {{section.settings.title}}
+                </h4>
+                <div class="paragraph-2 secondary-gray mt-1">
+                    {{section.settings.subtitle}}
+                </div>
+            </div>      
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+  "name": "Two Column",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title",
+      "default": "about miralou"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. Elementum odio sagittis, interdum elit ipsum. Volutpat erat ac eu aliquam turpis.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+        
+      ]
+    }
+  ]
+}
+
+{% endschema %}
