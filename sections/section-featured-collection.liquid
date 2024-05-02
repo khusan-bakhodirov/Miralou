@@ -1,12 +1,17 @@
-<section class="featured_colletion">
+{{"featuredCollection.css" |  asset_url |  stylesheet_tag}}
+
+<section class="featured_collection">
     <div class="container">
         <h4 class="heading-4 uppercase">
           {{section.settings.title}}
         </h4>
-        <div class="grid-cols-4 gap-1">
+        <div class="grid-cols-4 gap-2 mt-2">
                 {% for item in section.settings.featured_colection.products %}
                     {% render 'product-card', product-item: item %}
                 {% endfor %}
+        </div>
+        <div class="flex justify-center mt-1">
+            <a href="{{section.settings.featured_colection.url}}" class="button button_secondary">Show more</a>
         </div>
     </div>
 </section>
@@ -24,8 +29,7 @@
     {
         "type": "collection",
         "id": "featured_colection",
-        "label": "featured collection",
-        "default": "men"
+        "label": "featured collection"
     }
   ]
 }

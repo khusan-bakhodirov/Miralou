@@ -1,18 +1,15 @@
 {% style %}
-    {% for scheme in settings.color_schemes %}
     :root {
-        --black: {{scheme.settings.black}};
-        --secondary-black: {{scheme.settings.secondary_black}};
-        --main-gray: {{scheme.settings.main_gray}};
-        --secondary-gray: {{scheme.settings.secondary_gray}};
-        --third-gray: {{scheme.settings.third_gray}};
-        --white: {{scheme.settings.white}};
-        --primary-red: {{scheme.settings.primary_red}};
-        --primary-yellow: {{scheme.settings.primary_yellow}};
-        --primary-green: {{scheme.settings.primary_green}};
+        --black: {{settings.active_scheme.settings.black}};
+        --secondary-black: {{settings.active_scheme.settings.secondary_black}};
+        --main-gray: {{settings.active_scheme.settings.main_gray}};
+        --secondary-gray: {{settings.active_scheme.settings.secondary_gray}};
+        --third-gray: {{settings.active_scheme.settings.third_gray}};
+        --white: {{settings.active_scheme.settings.white}};
+        --primary-red: {{settings.active_scheme.settings.primary_red}};
+        --primary-yellow: {{settings.active_scheme.settings.primary_yellow}};
+        --primary-green: {{settings.active_scheme.settings.primary_green}};
       }
-{% endfor %}
-
 
 {% endstyle %}
 

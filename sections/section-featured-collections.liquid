@@ -5,15 +5,17 @@
     <h2 class="featured_collections-title">
       {{ section.settings.title }}
     </h2>
-    {% if section.settings.subtitle != blank %}
-      <p class="featured_collections-subtitle">
-        {{ section.settings.subtitle }}
-      </p>
-    {% else %}
-      <p class="featured_collections-subtitle">
-        Pick a category you needs
-      </p>
-    {% endif %}
+    <div class="featured_collections-subtitle">
+        {% if section.settings.subtitle != blank %}
+      
+            {{ section.settings.subtitle }}
+          
+        {% else %}
+          <p class="featured_collections-subtitle">
+            Pick a category you needs
+          </p>
+        {% endif %}
+    </div>
 
     <div class="featured_card-container">
 
@@ -40,7 +42,7 @@
 
 {% schema %}
   {
-    "name": "Collection Section",
+    "name": "Featured Collections",
     "settings": [
       {
         "type": "text",

@@ -1,0 +1,15 @@
+.product_img-container {
+    position: relative;
+}
+
+.out_of-stock {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-red);
+    color: white;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+}

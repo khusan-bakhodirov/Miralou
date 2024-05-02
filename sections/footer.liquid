@@ -24,11 +24,13 @@
                   alt="logo">
 
               {% endif %}
-              {% if block.settings.footer_text != blank %}
-                <p class="paragraph-5 white">{{block.settings.footer_text}}</p>
-              {% else %}
-                <p class="paragraph-5 white">Lorem ipsum dolor sit amet, <br/> consectetur adipiscing elit.</p>
-              {% endif %}
+              <div class="richtext-container paragraph-5 white">
+                {% if block.settings.footer_text != blank %}
+                  {{ block.settings.footer_text }}
+                {% else %}
+                  <p class="paragraph-5 white">Lorem ipsum dolor sit amet, <br/> consectetur adipiscing elit.</p>
+                {% endif %}
+              </div>
 
               <div class="flex gap-1 footer_icons_container">
                 {% render 'facebook-icon' %}
@@ -55,7 +57,6 @@
             <div>
               <h6 class="heading-6 red mb-1">
                 QUICK LINKS
-
               </h6>
               <ul class="flex flex-col gap-1">
                 <li>
@@ -72,17 +73,17 @@
           {% when 'contact' %}
             <div>
               <h6 class="heading-6 red mb-1">
-                {{block.settings.title}}
+                {{ block.settings.title }}
               </h6>
               <ul class="flex flex-col gap-1">
                 <li>
-                  <a class="paragraph-4 white" href="#">{{settings.address}}</a>
+                  <a class="paragraph-4 white" href="#">{{ shop.address }}</a>
                 </li>
                 <li>
-                  <a class="paragraph-4 white" href="phone:{{settings.phone_number}}">{{settings.phone_number}}</a>
+                  <a class="paragraph-4 white" href="phone:{{shop.phone}}">{{ shop.phone }}</a>
                 </li>
                 <li>
-                  <a class="paragraph-4 white" href="mailto:{{settings.email}}">{{settings.email}}</a>
+                  <a class="paragraph-4 white" href="mailto:{{shop.email}}">{{ shop.email }}</a>
                 </li>
               </ul>
             </div>
@@ -93,10 +94,12 @@
     </div>
     <div class="line"></div>
     <div class="flex flex-between mt-1">
-       <h6 class="heading-6 white">
-        Copyright © <span id="year"></span> {{shop.name}}
-       </h6>
-       <h6 class="heading-6 uppercase white">All right reserved</h6>
+      <h6 class="heading-6 white">
+        Copyright ©
+        <span id="year"></span>
+        {{ shop.name }}
+      </h6>
+      <h6 class="heading-6 uppercase white">All right reserved</h6>
     </div>
   </div>
 </footer>

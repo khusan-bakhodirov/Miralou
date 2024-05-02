@@ -7,11 +7,11 @@
     }
 </style>
 <header class="header">
-    <div class="container flex-between">
+    <div class="container flex flex-between">
         {% if settings.logo != blank %}
             <img width="{{settings.logo_width}}" height="24" src="{{settings.logo | image_url}}" alt="logo">
             {% else %}
-            <img width="100" height="24" src="{{'logo.png' |  asset_img_url}}" alt="logo">
+            <img width="100" height="24" src="{{'logo.png' |  file_url}}" alt="logo">
         {% endif %}
         <nav class="navigation">
             <ul class="list_items">

@@ -109,26 +109,10 @@
           "on_secondary_button": "secondary_gray",
           "secondary_button_border": "secondary_gray"
         }
-      }
-    ]
-  },
-  {
-    "name": "Contact Details",
-    "settings": [
-      {
-        "type": "text",
-        "id": "address",
-        "label": "Address"
-      },
-      {
-        "type": "text",
-        "id": "phone_number",
-        "label": "Phone Number"
-      },
-      {
-        "type": "text",
-        "id": "email",
-        "label": "Email Address"
+      }, {
+        "type": "color_scheme",
+        "id": "active_scheme",
+        "label": "choose the active scheme"
       }
     ]
   }

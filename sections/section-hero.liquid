@@ -5,30 +5,32 @@
    {% if section.settings.bg_image != blank %}
       <img class="banner_bg-image" src="{{ section.settings.bg_image|  image_url}}" width="100%" height="100%" alt="banner">
       {% else %}
-      <img class="banner_bg-image" src="{{'banner-bg.png' |  asset_img_url}}" width="100%" height="100%" alt="banner">
+      <img class="banner_bg-image" src="{{'banner-bg.png' |  file_url}}" width="100%" height="100%" alt="banner">
    {% endif %}
    <div class="banner_container">
     <div class="banner_text-container">
       <h1 class="heading-2 white">
          {{section.settings.title}}
       </h1>
-      {% if section.settings.subtitle != blank%}
-         <p class="paragraph-2 third-gray">
-         {{section.settings.subtitle}}
-         </p>
-         {% else %}
-            
-         <p class="paragraph-2 third-gray">We will help you to choose the product
-            that without the doubt suits you best.
-            And we mean it</p>
-      {% endif %}
-         <a href="{{section.settings.button_url}}" class="button_{{section.settings.button_type}}">{{section.settings.button_label}}</a>
+         <div class="paragraph-2 third-gray">
+            {% if section.settings.subtitle != blank%}
+        
+               {{section.settings.subtitle}}
+               
+               {% else %}
+                  
+               <p class="paragraph-2 third-gray">We will help you to choose the product
+                  that without the doubt suits you best.
+                  And we mean it</p>
+            {% endif %}
+         </div>
+         <a href="{{section.settings.button_url}}" class="button button_{{section.settings.button_type}}">{{section.settings.button_label}}</a>
     </div>
     <div class="banner_img-container">
       {% if section.settings.image != blank %}
          <img class="banner_img" src="{{ section.settings.image  |  image_url}}" width="auto" height="auto" alt="shoes">
          {% else %}
-         <img class="banner_img" src="{{'banner-img.png' |  asset_img_url}}" width="auto" height="auto" alt="shoes">
+         <img class="banner_img" src="{{'banner-img.png' |  file_url}}" width="auto" height="auto" alt="shoes">
             
       {% endif %}
     </div>
@@ -64,6 +66,10 @@
         {
           "value": "secondary",
           "label": "secodary"
+        },
+        {
+         "value": "dark",
+         "label": "dark"
         }
       ]
     },
