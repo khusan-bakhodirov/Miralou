@@ -8,7 +8,13 @@
         },
         "featured-collection": {
             "type": "section-featured-collection"
+        },
+        "two-column": {
+            "type": "section-two-column"
+        },
+        "testimonials": {
+            "type": "section-testimonials"
         }
     },
-    "order": ["hero", "featured-collections", "featured-collection"]
+    "order": ["hero", "featured-collections", "featured-collection", "two-column", "testimonials"]
 }

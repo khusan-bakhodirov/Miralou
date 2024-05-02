@@ -1,0 +1,71 @@
+<script src="{{ 'testimonials.js' | asset_url }}" defer></script>
+{{"testimonials.css" |  asset_url |  stylesheet_tag}}
+
+<section class="testimonials">
+    <img class="decoration" src="{{"testimonials-decoration.png" |  file_url}}" width="auto" height="auto" alt="decoration">
+    <div class="container">
+        <h4 class="heading-4 text-center uppercase white">
+            {{section.settings.title}}
+        </h4>
+        <div class="swiper carousel_container mySwiper mt-2">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper ">
+    {% for testimonial in section.blocks %}
+        
+        <div class="swiper-slide">
+            <div class="carousel_item">
+                <div class="paragraph-2 text-center">
+                {{testimonial.settings.body}}
+            </div>
+            <h5 class="heading-5 red testimonial_author">
+                {{testimonial.settings.author}}
+            </h5>
+            </div>
+        </div>
+    {% endfor %}
+    
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+
+</div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title",
+      "default": "what people say about us"
+    }
+  ],
+  "blocks": [
+    {
+        "type": "text",
+        "name": "Testimonial",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "insert testimonial text"
+          }, {
+            "type": "text",
+            "id": "author",
+            "label": "insert the name of author of testimonial"
+          }
+        ]
+      }
+  ]
+}
+
+{% endschema %}
