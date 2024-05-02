@@ -1,0 +1,67 @@
+{{ "featuredBlogs.css" | asset_url | stylesheet_tag }}
+<script src="{{ 'blogs.js' | asset_url }}" defer></script>
+
+<section class="featured_blog">
+  <div class="container">
+    <h4 class="heading-4 uppercase">
+      {{ section.settings.title }}
+    </h4>
+    <div class="paragraph-3 mt-1 main-gray featured_blog-subtitle">
+      {{ section.settings.subtitle }}
+    </div>
+    <div class="swiper blogSwiper mt-2">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper blog_swiper-wrapper">
+        {% for blog in section.blocks %}
+
+          <div class="swiper-slide">
+            {% render 'blog-card'
+              , blog-item: blog.settings.selected_blog %}
+          </div>
+        {% endfor %}
+
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Featured Blogs",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "latest news"
+      }, {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "<p>Nunc rhoncus auctor risus tempor lacus urna, id laoreet sed. Euismod nisl pellentesque risus cursus fringilla tincidunt volutpat, non.</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "article",
+        "name": "article",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "article",
+            "label": "choose the article",
+            "id": "selected_blog"
+
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

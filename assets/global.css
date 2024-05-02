@@ -165,6 +165,9 @@ a:hover {
 .red {
   color: var(--primary-red);
 }
+.main-gray {
+  color: var(--main-gray);
+}
 .secondary-gray {
   color: var(--secondary-gray);
 }
@@ -176,6 +179,10 @@ a:hover {
 .grid-cols-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 .grid-cols-4 {
   display: grid;
