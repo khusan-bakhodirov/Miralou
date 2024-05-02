@@ -1,0 +1,43 @@
+{{ "caption.css" | asset_url | stylesheet_tag }}
+
+<section class="caption">
+  <div class="container">
+    <div class="caption_text-container">
+      <img
+        src="{{section.settings.bg_image | image_url}}"
+        class="caption_bg-image"
+        width="100%"
+        height="100%"
+        alt="bg image">
+      <a href="{{section.settings.url}}" class="heading-6 caption_title uppercase">
+        {{ section.settings.title }}
+        <div class="caption_icon">
+          {% render 'instagram-icon' %}
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Caption",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "title",
+        "default": "@miralou"
+      }, {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background Image"
+      }, {
+        "type": "url",
+        "id": "url",
+        "label": "URL"
+      }
+    ]
+  }
+
+{% endschema %}

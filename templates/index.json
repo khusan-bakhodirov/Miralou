@@ -1,20 +1,186 @@
 {
-    "sections": {
-        "hero": {
-            "type": "section-hero"
-        },
-        "featured-collections": {
-            "type": "section-featured-collections"
-        },
-        "featured-collection": {
-            "type": "section-featured-collection"
-        },
-        "two-column": {
-            "type": "section-two-column"
-        },
-        "testimonials": {
-            "type": "section-testimonials"
-        }
+  "sections": {
+    "hero": {
+      "type": "section-hero",
+      "settings": {
+        "title": "choose your shoes with us.",
+        "subtitle": "",
+        "button_type": "secondary",
+        "button_label": "Read More",
+        "button_url": ""
+      }
     },
-    "order": ["hero", "featured-collections", "featured-collection", "two-column", "testimonials"]
+    "featured-collections": {
+      "type": "section-featured-collections",
+      "blocks": {
+        "collection_ccyiYn": {
+          "type": "collection",
+          "settings": {
+            "collection_array": "women",
+            "collection_image": "shopify:\/\/shop_images\/categories-2.png"
+          }
+        },
+        "collection_XNhjtV": {
+          "type": "collection",
+          "settings": {
+            "collection_array": "men",
+            "collection_image": "shopify:\/\/shop_images\/categories-3.png"
+          }
+        },
+        "collection_6GJtBC": {
+          "type": "collection",
+          "settings": {
+            "collection_array": "kids",
+            "collection_image": "shopify:\/\/shop_images\/categegories-1.png"
+          }
+        }
+      },
+      "block_order": [
+        "collection_ccyiYn",
+        "collection_XNhjtV",
+        "collection_6GJtBC"
+      ],
+      "settings": {
+        "title": "shop by categories",
+        "subtitle": ""
+      }
+    },
+    "featured-collection": {
+      "type": "section-featured-collection",
+      "settings": {
+        "title": "Our products",
+        "featured_colection": "men"
+      }
+    },
+    "two-column": {
+      "type": "section-two-column",
+      "settings": {
+        "title": "about miralou",
+        "subtitle": "<p>Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. Elementum odio sagittis, interdum elit ipsum. Volutpat erat ac eu aliquam turpis.<\/p>",
+        "image": "shopify:\/\/shop_images\/Rectangle_45.png",
+        "image_position": "left"
+      }
+    },
+    "testimonials": {
+      "type": "section-testimonials",
+      "blocks": {
+        "text_jgehJp": {
+          "type": "text",
+          "settings": {
+            "body": "<p>“Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada.”<\/p>",
+            "author": "-Andrew Charlston"
+          }
+        },
+        "text_jinyz4": {
+          "type": "text",
+          "settings": {
+            "body": "<p>“Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada.”<\/p>",
+            "author": "-Andrew Charlston"
+          }
+        }
+      },
+      "block_order": [
+        "text_jgehJp",
+        "text_jinyz4"
+      ],
+      "settings": {
+        "title": "what people say about us"
+      }
+    },
+    "logos": {
+      "type": "section-logos",
+      "blocks": {
+        "text_XjyEwk": {
+          "type": "text",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/image_1.png"
+          }
+        },
+        "text_Hr3Lce": {
+          "type": "text",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/image_3.png"
+          }
+        },
+        "text_dmVpYp": {
+          "type": "text",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Logo_2.png"
+          }
+        },
+        "text_X8LWQQ": {
+          "type": "text",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/image_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "text_XjyEwk",
+        "text_Hr3Lce",
+        "text_dmVpYp",
+        "text_X8LWQQ"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "featured-blogs": {
+      "type": "section-featured-blogs",
+      "blocks": {
+        "article_pJLncD": {
+          "type": "article",
+          "settings": {
+            "selected_blog": "news\/quis-egestas-consectetur"
+          }
+        },
+        "article_g3VhG6": {
+          "type": "article",
+          "settings": {
+            "selected_blog": "news\/auctor-etiam-elit"
+          }
+        },
+        "article_r4qPRz": {
+          "type": "article",
+          "settings": {
+            "selected_blog": "news\/eu-morbi-suspendisse"
+          }
+        },
+        "article_fBCgHP": {
+          "type": "article",
+          "settings": {
+            "selected_blog": "news\/quis-egestas-consectetur"
+          }
+        }
+      },
+      "block_order": [
+        "article_pJLncD",
+        "article_g3VhG6",
+        "article_r4qPRz",
+        "article_fBCgHP"
+      ],
+      "settings": {
+        "title": "latest news",
+        "subtitle": "<p>Nunc rhoncus auctor risus tempor lacus urna, id laoreet sed. Euismod nisl pellentesque risus cursus fringilla tincidunt volutpat, non.<\/p>"
+      }
+    },
+    "caption": {
+      "type": "section-caption",
+      "settings": {
+        "title": "@miralou",
+        "bg_image": "shopify:\/\/shop_images\/rooftopper-looking-down.jpg",
+        "url": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured-collections",
+    "featured-collection",
+    "two-column",
+    "testimonials",
+    "logos",
+    "featured-blogs",
+    "caption"
+  ]
 }
