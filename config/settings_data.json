@@ -22,12 +22,27 @@
           "logo_3PJGN9": {
             "type": "logo",
             "settings": {
-              "footer_text": "<p>hello<\/p>"
+              "footer_text": ""
+            }
+          },
+          "navigation_pkfTxp": {
+            "type": "navigation",
+            "settings": {
+              "title": "INFORMATION",
+              "menu": "footer"
+            }
+          },
+          "contact_yWqhEd": {
+            "type": "contact",
+            "settings": {
+              "title": "CONTACT US"
             }
           }
         },
         "block_order": [
-          "logo_3PJGN9"
+          "logo_3PJGN9",
+          "navigation_pkfTxp",
+          "contact_yWqhEd"
         ],
         "settings": {
         }

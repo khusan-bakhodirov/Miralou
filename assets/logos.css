@@ -1,0 +1,10 @@
+.logos {
+    padding: 5rem 0;
+}
+
+.logos_container {
+    gap: 5rem;
+}
+.logo {
+    object-fit: contain;
+}

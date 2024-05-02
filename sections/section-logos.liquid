@@ -1,0 +1,43 @@
+{{"logos.css" |  asset_url | stylesheet_tag}}
+
+<section class="logos">
+    <div class="container">
+        <h5 class="heading-5">
+            {% if section.settings.title != blank %}
+                {{section.settings.title}}
+            {% endif %}
+        </h5>
+        <div class="flex logos_container justify-center">
+            {% for logo in section.blocks %}
+                <img class="logo" src="{{logo.settings.logo |  image_url }}" width="auto" height="auto" alt="">
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Logos",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "titel"
+            }
+        ],
+        "blocks": [
+    {
+        "type": "text",
+        "name": "logos",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "insert logo "
+          }
+        ]
+      }
+  ]
+    }
+{% endschema %}
