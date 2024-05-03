@@ -1,0 +1,67 @@
+{{ "newsletter.css" | asset_url | stylesheet_tag }}
+
+{% form 'contact' %}
+    <section class="newsletter">
+      {{ form.errors | default_errors }}
+    <div class="container newsletter_container">
+      <div class="newsletter_container-left">
+        <h4 class="heading-4 white uppercase">
+          {{ section.settings.title }}
+        </h4>
+        <div class="paragraph-5 white newsletter_subtitle">
+          {{ section.settings.subtitle }}
+        </div>
+      </div>
+      <div class="newsletter_container-right">
+        <input
+          type="email"
+          name="contact[email]"
+          id="email"
+          type="text"
+          placeholder="please enter your email">
+        <button type="submit" class="button button_{{section.settings.button_type}}">{{ section.settings.button_label }}</button>
+      </div>
+    </div>
+  </section>
+{% endform %}
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "title",
+        "default": "our newsseller"
+      }, {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "subtitle",
+        "default": "<p>Subscribe to get more useful information about us and to get you 15% discount offyour next purchase  </p>"
+      }, {
+        "type": "select",
+        "id": "button_type",
+        "label": "Button Type",
+        "options": [
+          {
+            "value": "primary",
+            "label": "primary"
+          }, {
+            "value": "secondary",
+            "label": "Secondary"
+          }, {
+            "value": "dark",
+            "label": "Dark"
+          }
+        ]
+      }, {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "Subscribe"
+      }
+    ]
+  }
+
+{% endschema %}

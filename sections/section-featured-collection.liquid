@@ -5,7 +5,7 @@
         <h4 class="heading-4 uppercase">
           {{section.settings.title}}
         </h4>
-        <div class="grid-cols-4 gap-2 mt-2">
+        <div class="grid-cols-4 products_container gap-2 mt-2">
                 {% for item in section.settings.featured_colection.products %}
                     {% render 'product-card', product-item: item %}
                 {% endfor %}

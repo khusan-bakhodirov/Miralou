@@ -23,3 +23,20 @@
     padding: 0 2rem;
 }
 
+
+@media screen and (max-width: 768px) {
+    .two_column {
+        padding: 6rem 0;
+    }
+    .two_column-card {
+        flex-direction: column;
+        height: auto;
+    }
+    .two_column-text {
+        flex: none;
+    }
+    .two_column-img {
+        flex: none;
+    }
+
+}

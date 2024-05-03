@@ -6,8 +6,7 @@
     width: 50%;
 }
 
-.swiper-pagination {
-}
+
 
 .swiper-pagination-bullet-active {
     background-color: var(--primary-red)!important;
@@ -18,4 +17,10 @@
 
 .blog_swiper-wrapper {
     height: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+    .featured_blog-subtitle {
+        width: 80%;
+    }
 }

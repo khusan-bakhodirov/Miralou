@@ -18,3 +18,10 @@ footer {
     height: 1px;
     background-color: var(--primary-red);
 }
+
+@media screen and (max-width: 768px) {
+    .footer_bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

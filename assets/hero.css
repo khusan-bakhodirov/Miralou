@@ -38,3 +38,30 @@
     width: 510px;
     height: 617px;
 }
+
+@media screen and (max-width: 768px) {
+    .banner_container {
+        flex-direction: column-reverse;
+    }
+    .banner_img {
+        width: 95%;
+        height: 500px;
+    }
+    .banner_text-container {
+        align-items: center;
+    }
+
+    .hero_title {
+        text-align: center;
+    }
+    .hero_subtitle {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+   .banner_container {
+    padding-left: 10px;
+    padding-right: 10px;
+   }
+}
