@@ -158,6 +158,10 @@ a:hover {
   background-color: var(--black);
   color: var(--white);
 }
+.button_outline {
+  background-color: transparent;
+  border: 1px solid var(--primary-red);
+}
 /* COLORS */
 .white {
   color: var(--white);

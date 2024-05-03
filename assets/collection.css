@@ -1,0 +1,14 @@
+.collection {
+    margin-bottom: 4rem;
+}
+
+.sorting_container {
+    margin-top: 2rem;
+}
+
+.collection_sort-select {
+    border: none;
+    margin-left: 0.5rem;
+    width: 6.5rem;
+    background: transparent;
+}

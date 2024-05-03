@@ -1,6 +1,6 @@
 {{ "newsletter.css" | asset_url | stylesheet_tag }}
 
-{% form 'contact' %}
+{% form 'customer' %}
     <section class="newsletter">
       {{ form.errors | default_errors }}
     <div class="container newsletter_container">
@@ -13,17 +13,25 @@
         </div>
       </div>
       <div class="newsletter_container-right">
-        <input
-          type="email"
+      {% if form.posted_successfully? %}
+        <p class="white paragraph-2">your email is successfully added</p>
+      {% else %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email"
           name="contact[email]"
-          id="email"
-          type="text"
-          placeholder="please enter your email">
-        <button type="submit" class="button button_{{section.settings.button_type}}">{{ section.settings.button_label }}</button>
-      </div>
+          id="Email"
+          value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+          placeholder="please enter your email"
+          autocorrect="off"
+          autocapitalize="off">
+          <button type="submit" name="commit" class="button button_{{section.settings.button_type}}">{{ section.settings.button_label }}</button>
+        {% endif %}
+        </div>
     </div>
   </section>
 {% endform %}
+
+
 
 {% schema %}
   {

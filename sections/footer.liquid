@@ -33,10 +33,12 @@
               </div>
 
               <div class="flex gap-1 footer_icons_container">
-                {% render 'facebook-icon' %}
-                {% render 'vinemo-icon' %}
-                {% render 'instagram-icon' %}
-                {% render 'twitter-icon' %}
+                <a href="{{settings.facebook_url}}">{% render 'facebook-icon' %}</a>
+                <a href="{{settings.vine_url}}">
+                  {% render 'vinemo-icon' %}</a>
+                <a href="{{settings.instagram_url}}">{% render 'instagram-icon' %}</a>
+                <a href="{{settings.twitter_url}}">
+                  {% render 'twitter-icon' %}</a>
               </div>
             </div>
           {% when 'navigation' %}

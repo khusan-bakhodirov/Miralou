@@ -115,5 +115,35 @@
         "label": "choose the active scheme"
       }
     ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "instagram_url",
+        "label": "Instagram URL",
+        "default": "https://www.instagram.com/"
+      },
+      {
+        "type": "text",
+        "id": "facebook_url",
+        "label": "Facebook URL",
+        "default": "https://www.facebook.com/"
+      },
+      {
+        "type": "text",
+        "id": "twitter_url",
+        "label": "Twitter URL",
+        "default": "https://twitter.com/"
+      },
+      {
+        "type": "text",
+        "id": "vine_url",
+        "label": "Vine URL",
+        "default": "https://vine.co/"
+      }
+    ]
   }
+  
 ]

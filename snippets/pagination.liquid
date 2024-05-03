@@ -1,0 +1,15 @@
+{{"pagination.css" |  asset_url | stylesheet_tag }}
+
+{% if pagination.pages > 0 %}
+    <nav role="navigation" class="pagination_container">
+        <a href="{{ pagination.previous.url }}" class="pagination_left">{% render 'arrowLeft-icon' %}</a>
+        {% for part in pagination.parts %}
+            {% if part.is_link %}
+                <a class="pagination_numbers paragraph-4 red {% if pagination.current_page == part.title %}active_number{% endif %}" href="{{ part.url }}" class="">{{ part.title }}</a>
+            {% else %}
+                <span class="pagination_numbers paragraph-4 red {% if pagination.current_page == part.title %}active_number{% endif %}">{{ part.title }}</span>
+            {% endif %}
+        {% endfor %}
+            <a href="{{ pagination.next.url }}" class="pagination_next">{% render 'arrowRight-icon' %}</a>     
+    </nav>
+{% endif %}
