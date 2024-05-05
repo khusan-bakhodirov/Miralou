@@ -11,6 +11,31 @@
     width="100%">
   <div class="container">
     <div class="flex product_container">
+      <div class="swiper mobile_product-gallery mt-2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper ">
+          {% for image in product.images %}
+            <div class="swiper-slide">
+
+              <img
+                class="product_img"
+                src="{{image |  image_url }}"
+                width="auto"
+                height="auto"
+                alt="product image">
+            </div>
+          {% endfor %}
+
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+
+      </div>
       <div class="product_gallery grid-cols-2 gap-2">
         {% for image in product.images %}
           <img
@@ -40,7 +65,10 @@
 
             <div class="flex flex-wrap gap-1">
               {% for variant in product.variants %}
-                <label htmlfor="{{variant.id}}" data-price="{{variant.price}}" class="product_variant paragraph-4 ">
+                <label
+                  htmlfor="{{variant.id}}"
+                  data-price="{{variant.price}}"
+                  class="product_variant paragraph-4 ">
                   {{ variant.title | escape }}
                   <input
                     type="hidden"
@@ -48,13 +76,11 @@
                     name="id"
                     value="{{variant.id}}">
                 </label>
-               
+
               {% endfor %}
             </div>
-            <div class="flex gap-2">
-              <button
-                type="submit"
-                class="button button_secondary product_btn">
+            <div class="flex gap-2 product_button-container">
+              <button type="submit" class="button button_secondary product_btn">
                 {% if product.available %}
                   add to cart
                 {% else %}
