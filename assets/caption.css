@@ -1,9 +1,10 @@
 .caption {
-    margin: 8rem 0;
-    position: relative;
-   
+    margin: 8rem 0;   
 }
+
 .caption_text-container {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;

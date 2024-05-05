@@ -11,7 +11,7 @@
 
 .list_items {
   display: flex;
-  gap: 2.5rem;
+  gap: 3rem;
 }
 
 .icons_items {
@@ -41,6 +41,24 @@
   z-index: 100;
 }
 
+.navbar_cart {
+  position: relative;
+}
+
+.navbar_cart span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  padding: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--black);
+  color: var(--white);
+}
 @media (max-width: 768px) {
 
   .icons_items {

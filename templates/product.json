@@ -1,7 +1,7 @@
 {
     "sections": {
         "product": {
-            "type": "section-product"
+            "type": "template-product"
         }
     },
     "order": ["product"]

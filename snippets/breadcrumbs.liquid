@@ -1,7 +1,12 @@
 {{"breadcrumbs.css" |  asset_url |  stylesheet_tag}}
 
 <div class="breadcrumbs">
-    <img class="breadcrumbs_bg-image" src="{{collection-item.image | image_url}}" width="100%" height="100%" alt="image">
+    {% if page-img %}
+        <img class="breadcrumbs_bg-image" src="{{page-img | image_url}}" width="100%" height="100%" alt="image">
+        {% else %}
+        <img class="breadcrumbs_bg-image" src="{{"breadcrumbs-image.png" | file_url}}" width="100%" height="100%" alt="breadcrumb image">
+            
+    {% endif %}
         <div class="container">
             <p class="paragraph-5 white breadcrumbs_title">Home / {{page-title}}</p>
             <h2 class="heading-2 uppercase white breadcrumbs_subtitle">

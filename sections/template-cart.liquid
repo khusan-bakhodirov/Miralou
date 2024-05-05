@@ -1,0 +1,107 @@
+{{ 'cart.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'cart.js' | asset_url }}" defer></script>
+
+{% render 'breadcrumbs'
+  , page-title: section.settings.title page-img: section.settings.bg_image %}
+<section class="cart">
+  {% if cart.item_count > 0 %}
+    <div class="container cart_wrapper">
+      <h4 class="heading-4 uppercase">
+        product
+      </h4>
+      <form action="{{ routes.cart_url }}" method="POST" novalidate class="flex cart_container">
+        <div class="cart_line-items mt-2">
+          {% for product-item in cart.items %}
+            <div class="line_item">
+              <div class="flex gap-2 items-center">
+                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="remove_btn">
+
+                  {% render 'close-icon' %}
+                </a>
+                <img
+                  class="line_item-img"
+                  src="{{product-item.image |  image_url }}"
+                  width="auto"
+                  height="auto"
+                  alt="">
+                <h5 class="heading-5 uppercase">{{ product-item.title }}</h5>
+              </div>
+              <div class="flex items-center product_item-quantity">
+                <button
+                type="button"
+                  class="quantity-change"
+                  data-id="{{ product-item.key }}"
+                  data-change="decrease">{% render 'arrowLeft-icon' %}</button>
+                <div class="product_quantity">
+                  {{ product-item.quantity }}
+                </div>
+                <button
+                    type="button"
+                  class="quantity-change"
+                  data-id="{{ product-item.key }}"
+                  data-change="increase">{% render 'arrowRight-icon' %}</button>
+              </div>
+              <h5 class="heading-5 secondary-gray">
+                {{ product-item.original_line_price | money }}
+              </h5>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="cart_totals">
+          <div class="cart_datails-container">
+            <h5 class="heading-5 uppercase white">
+              cart totals
+            </h5>
+            <div class="totals_container">
+              <p class="paragraph-4 secondary-gray cart_subtotal">
+                Subtotals:
+                <span>{{ cart.total_price | money }}</span>
+              </p>
+              <h5 class="heading-5 white uppercase cart_total">
+                Total:
+                <span>{{ cart.total_price | money }}</span>
+              </h5>
+            </div>
+          </div>
+          <div class="mt-2 flex gap-1">
+            <button class="button button_secondary" type="submit" name="checkout">Proceed to checkout</button>
+            <a href="{{routes.all_products_collection_url}}" class="button button_outline">Continue shopping</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  {% else %}
+    <div class="cart_empty-container">
+      <div class="empty_text-container">
+        <h2 class="heading-2 uppercase red text-center">
+          Your Shopping cart is empty
+        </h2>
+        <p class="paragraph-2 white text-center">
+          To see which products are in cart, go to shop and click on “Add to cart” button. For now there is no products added into the cart.
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <a href="{{routes.all_products_collection_url}}" class="button button_secondary mt-2">go to shop</a>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "title",
+        "default": "cart"
+      }, {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "background image"
+
+      }
+    ]
+  }
+{% endschema %}

@@ -64,4 +64,9 @@
     padding-left: 10px;
     padding-right: 10px;
    }
+   .banner_img {
+    width: 99%;
+    height: 380px;
+}
+
 }

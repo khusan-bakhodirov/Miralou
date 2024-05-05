@@ -1,5 +1,11 @@
 .product_img-container {
     position: relative;
+    width: 100%;
+}
+.product_item-image {
+    width: 100%;
+    object-fit: cover;
+    height: 21rem;
 }
 
 .out_of-stock {

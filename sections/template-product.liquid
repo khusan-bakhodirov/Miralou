@@ -1,0 +1,114 @@
+{{ "product.css" | asset_url | stylesheet_tag }}
+<script src="{{ 'product.js' | asset_url }}" defer></script>
+
+<section class="product">
+  <div class="overlay">
+    <div class="close">{% render 'close-icon' %}</div>
+  </div>
+  <img
+    class="product_modal"
+    height="100%"
+    width="100%">
+  <div class="container">
+    <div class="flex product_container">
+      <div class="product_gallery grid-cols-2 gap-2">
+        {% for image in product.images %}
+          <img
+            class="product_img"
+            src="{{image |  image_url }}"
+            width="auto"
+            height="auto"
+            alt="product image">
+        {% endfor %}
+      </div>
+
+      <div class="product_info">
+        {% form 'product'
+          , product
+          , id: 'product-form'
+          , novalidate: 'novalidate' %}
+          <div class="flex flex-col gap-2">
+            <p class="paragraph-5 secondary-gray">
+              {{ product.collections | first }} / {{ product.type }} / {{ product.title }}
+            </p>
+            <h5 class="heading-5 uppercase">
+              {{ product.title }}
+            </h5>
+            <h5 class="heading-5 red product_price">
+              {{ product.selected_or_first_available_variant.price | money }}
+            </h5>
+
+            <div class="flex flex-wrap gap-1">
+              {% for variant in product.variants %}
+                <label htmlfor="{{variant.id}}" data-price="{{variant.price}}" class="product_variant paragraph-4 ">
+                  {{ variant.title | escape }}
+                  <input
+                    type="hidden"
+                    id="{{variant.id}}"
+                    name="id"
+                    value="{{variant.id}}">
+                </label>
+               
+              {% endfor %}
+            </div>
+            <div class="flex gap-2">
+              <button
+                type="submit"
+                class="button button_secondary product_btn">
+                {% if product.available %}
+                  add to cart
+                {% else %}
+                  out of stock
+                {% endif %}
+              </button>
+              <button type="button" class="button button_outline product_btn">Add to Whishlist</button>
+            </div>
+
+            <button type="button" class="button btn_description button_outline product_btn flex flex-between items-center">
+              Description
+              <span class="product_btn-icon">{% render 'arrowRight-icon' %}</span>
+            </button>
+            <div class="paragraph-5 product_description flex flex-col gap-1">
+              {{ product.description }}
+            </div>
+            <input
+              type="hidden"
+              name="quantity"
+              value="1">
+          </div>
+        {% endform %}
+      </div>
+    </div>
+    <div class="mt-3">
+      <h4 class="heading-4 uppercase">
+        {{ section.settings.title }}
+      </h4>
+      <div class="mt-1 grid-cols-4 gap-2">
+        {% for recommended_product in product.metafields.custom.recommended_products.value %}
+          {% render 'product-card'
+            , product-item: recommended_product %}
+        {% endfor %}
+      </div>
+      <div class="flex justify-center mt-3">
+        {% assign product_collection = product.collections | first %}
+        <a href="{{product_collection.url}}" class="button button_secondary">
+          show more
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "title",
+        "default": "other products"
+      }
+    ]
+  }
+{% endschema %}

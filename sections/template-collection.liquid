@@ -3,14 +3,13 @@
 {% assign sort_by = request.query_string | split: 'sort_by=' | last %}
     
 {% assign product_per_page = 3 %}
-{% render 'breadcrumbs', page-title: 'Shop', collection-item: collection %}
+{% render 'breadcrumbs', page-title: 'Shop', page-img: collection.featured_image %}
 
 <section class="collection">
     {% paginate collection.products by product_per_page | sort: sort_by %}
     {% if paginate.current_page > 1 %}
-        {% assign pagesAbove1 = 1%}
     {% endif %} 
-        {% assign number_of_displayed_products = product_per_page |  times: paginate.current_page | minus: pagesAbove1 %}
+        {% assign number_of_displayed_products = product_per_page |  times: paginate.current_page   %}
         {% assign start_of_number_of_displayed_products = number_of_displayed_products |  minus: product_per_page| plus: 1 %}
     <div class="container">
         <div class="sorting_container flex">

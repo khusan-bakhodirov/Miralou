@@ -8,6 +8,7 @@ let blogSwiper = new Swiper(".blogSwiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  loop: true,
   breakpoints: {
     320: {
       slidesPerView: 1,
