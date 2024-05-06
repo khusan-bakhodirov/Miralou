@@ -1,5 +1,6 @@
 {{ 'navbar.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'search.js' | asset_url }}" defer></script>
+<script src="{{ 'navbar.js' | asset_url }}" defer></script>
 {% assign main_menu_linklist = linklists[section.settings.navigation].links %}
 <style>
   :root {
@@ -28,8 +29,19 @@
     <nav class="navigation">
       <ul class="list_items">
         {% for item in main_menu_linklist %}
-          <li>
-            <a class="heading-6" href="{{item.url}}">{{ item.title | upcase }}</a>
+          <li class="list_item">
+            <a class="heading-6  items-center" href="{{item.url}}">{{ item.title | upcase }} {% if item.links.size > 0 %}
+              <span>{% render 'arrowDown' %}</span>
+            {% endif %} </a>
+           {% if item.links.size > 0 %}
+              <ul class="sublinks">
+                {% for sublink in item.links %}
+                  <li class="sublink">
+                    <a class="paragraph-4" href="{{sublink.url}}">{{ sublink.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %} 
           </li>
         {% endfor %}
       </ul>

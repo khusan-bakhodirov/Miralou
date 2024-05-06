@@ -1,58 +1,71 @@
-{{"collection.css" |  asset_url |  stylesheet_tag}}
+{{ "collection.css" | asset_url | stylesheet_tag }}
 <script src="{{ 'collection.js' | asset_url }}" defer></script>
 {% assign sort_by = request.query_string | split: 'sort_by=' | last %}
-    
-{% assign product_per_page = 5 %}
-{% render 'breadcrumbs', page-title: 'Shop', page-img: collection.featured_image %}
+
+{% assign product_per_page = 4 %}
+{% render 'breadcrumbs'
+  , page-title: 'Shop'
+  , page-img: collection.featured_image %}
 
 <section class="collection">
-    {% paginate collection.products by product_per_page | sort: sort_by %}
+  {% paginate collection.products by product_per_page | sort: sort_by %}
     {% if paginate.current_page > 1 %}
-    {% endif %} 
-        {% assign number_of_displayed_products = product_per_page |  times: paginate.current_page   %}
-        {% assign start_of_number_of_displayed_products = number_of_displayed_products |  minus: product_per_page| plus: 1 %}
+    {% endif %}
+    {% assign number_of_displayed_products = product_per_page | times: paginate.current_page %}
+    {% assign start_of_number_of_displayed_products = number_of_displayed_products | minus: product_per_page | plus: 1 %}
     <div class="container">
-        <div class="sorting_container flex">
-            <div class="flex paragraph-5 items-center">
-                <label for="sorting">{% render 'settings-icon' %}</label>
-                <select  class="collection_sort-select" id="sort-select">
-                    <option value="">sort by</option>
-                    <option value="price-asc" >Price: Low to High</option>
-                    <option value="price-desc" >Price: High to Low</option>
-                  </select>
-            </div>
-            <p class="paragraph-5 ml-1">
-                Showing {{start_of_number_of_displayed_products}}-{{number_of_displayed_products}} of {{collection.all_products_count}}
-            </p>
+      <div class="sorting_container flex">
+        <div class="flex paragraph-5 items-center">
+          <label for="sorting">{% render 'settings-icon' %}</label>
+          <select class="collection_sort-select" id="sort-select">
+            <option value="">sort by</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
         </div>
-        <div class="grid-cols-{{section.settings.product_per_row}} gap-2 mt-2">
-            
-            {% for product in collection.products %}
-                {% render 'product-card', product-item: product %}
-            {% endfor %}
-        </div>
-        <div class="flex justify-center mt-2">
-            {% render 'pagination', pagination: paginate %}
-        </div>
+        <p class="paragraph-5 ml-1">
+          Showing {{ start_of_number_of_displayed_products }}-{% if paginate.current_page == paginate.pages %}
+            {{ collection.all_products_count }}
+            {% else %}
+            {{ number_of_displayed_products }}
+          {% endif %}
+          of {{ collection.all_products_count }}
+        </p>
+      </div>
+      <div class="grid-cols-{{section.settings.product_per_row}} gap-2 mt-2">
+
+        {% for product in collection.products %}
+          {% render 'product-card'
+            , product-item: product %}
+        {% endfor %}
+      </div>
+      <div class="flex justify-center mt-2">
+        {% render 'pagination'
+          , pagination: paginate %}
+      </div>
     </div>
-{% endpaginate %}
+  {% endpaginate %}
 </section>
 
 {% schema %}
-    {
-        "name": "Collection",
-        "settings": [{
-            "id": "product_per_row",
-            "label": "Product per row",
-            "type": "select",
-            "default": "4",
-            "options": [{
-                "value": "2",
-                "label": "2"                
-            },{
-                "value": "4",
-                "label": "4"                
-            }]            
-        }]
-    }
+  {
+    "name": "Collection",
+    "settings": [
+      {
+        "id": "product_per_row",
+        "label": "Product per row",
+        "type": "select",
+        "default": "4",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          }, {
+            "value": "4",
+            "label": "4"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

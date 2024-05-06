@@ -95,6 +95,9 @@
 .product_btn-icon.active {
   rotate: 0deg;
 }
+.btn_description {
+  justify-content: space-between;
+}
 .product_description  p {
   font-size: 1.2rem;
   font-family: Poppins, sans-serif;

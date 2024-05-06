@@ -1,6 +1,6 @@
 {{"pagination.css" |  asset_url | stylesheet_tag }}
 
-{% if pagination.pages > 0 %}
+{% if pagination.pages > 1 %}
     <nav role="navigation" class="pagination_container">
         <a href="{{ pagination.previous.url }}" class="pagination_left">{% render 'arrowLeft-icon' %}</a>
         {% for part in pagination.parts %}
@@ -12,4 +12,6 @@
         {% endfor %}
             <a href="{{ pagination.next.url }}" class="pagination_next">{% render 'arrowRight-icon' %}</a>     
     </nav>
+    {% else %}
+        <nav></nav>
 {% endif %}

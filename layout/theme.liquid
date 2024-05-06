@@ -11,7 +11,7 @@
     <!-- Header hook for plugins -->
     {{ 'global.css' | asset_url | stylesheet_tag }}
     {{ 'normalize.css' | asset_url | stylesheet_tag }}
-    {% section 'css-vars' %}
+    {% render 'css-vars' %}
     
     {% comment %} 
       google fonts
