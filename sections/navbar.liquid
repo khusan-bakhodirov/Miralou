@@ -50,13 +50,14 @@
         {% render 'cart-icon' %}
         {% if cart.item_count > 0 %}
 
-          <span class="paragraph-5">
-            {{ cart.item_count }}
+          <span>
+           
           </span>
         {% endif %}
       </a>
     </div>
   </div>
+  {% render 'cart-modal' %}
 </header>
 
 

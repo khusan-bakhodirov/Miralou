@@ -84,6 +84,9 @@
 
 .product_btn {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .product_btn-icon {
   rotate: 90deg;
@@ -105,6 +108,9 @@
   display: none;
 }
 
+.sale_price {
+  text-decoration: line-through;
+}
 /* SWIPER JS */
 .swiper-button-next {
   position: absolute;

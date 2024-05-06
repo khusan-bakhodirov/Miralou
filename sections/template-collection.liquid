@@ -2,7 +2,7 @@
 <script src="{{ 'collection.js' | asset_url }}" defer></script>
 {% assign sort_by = request.query_string | split: 'sort_by=' | last %}
     
-{% assign product_per_page = 3 %}
+{% assign product_per_page = 5 %}
 {% render 'breadcrumbs', page-title: 'Shop', page-img: collection.featured_image %}
 
 <section class="collection">

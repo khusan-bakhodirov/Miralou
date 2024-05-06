@@ -23,6 +23,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.line_item-left {
+  width: 50%;
+}
 
 .line_item-img {
     width: 10rem;

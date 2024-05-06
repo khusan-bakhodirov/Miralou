@@ -5,12 +5,12 @@
         <h4 class="heading-4 uppercase">
           {{section.settings.title}}
         </h4>
-        <div class="grid-cols-4 products_container gap-2 mt-2">
+        <div class="grid-cols-4 products_container gap-3 mt-2">
                 {% for item in section.settings.featured_colection.products %}
                     {% render 'product-card', product-item: item %}
                 {% endfor %}
         </div>
-        <div class="flex justify-center mt-1">
+        <div class="flex justify-center mt-2">
             <a href="{{section.settings.featured_colection.url}}" class="button button_secondary">Show more</a>
         </div>
     </div>

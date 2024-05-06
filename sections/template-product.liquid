@@ -48,10 +48,10 @@
       </div>
 
       <div class="product_info">
-        {% form 'product'
-          , product
-          , id: 'product-form'
-          , novalidate: 'novalidate' %}
+        <form
+          class="product_form"
+          action="/cart/add"
+          method="post">
           <div class="flex flex-col gap-2">
             <p class="paragraph-5 secondary-gray">
               {{ product.collections | first }} / {{ product.type }} / {{ product.title }}
@@ -59,8 +59,15 @@
             <h5 class="heading-5 uppercase">
               {{ product.title }}
             </h5>
-            <h5 class="heading-5 red product_price">
-              {{ product.selected_or_first_available_variant.price | money }}
+            <h5 class="heading-5 red product_price flex gap-1 items-center">
+              {% if product.selected_or_first_available_variant.compare_at_price %}
+                <span class="sale_price prodcut_compare-price">
+                  {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                </span>
+              {% endif %}
+              <span class="product_exact-price">
+                {{ product.selected_or_first_available_variant.price | money }}
+              </span>
             </h5>
 
             <div class="flex flex-wrap gap-1">
@@ -68,6 +75,7 @@
                 <label
                   htmlfor="{{variant.id}}"
                   data-price="{{variant.price}}"
+                  data-compare="{{variant.compare_at_price}}"
                   class="product_variant paragraph-4 ">
                   {{ variant.title | escape }}
                   <input
@@ -80,9 +88,13 @@
               {% endfor %}
             </div>
             <div class="flex gap-2 product_button-container">
+
               <button type="submit" class="button button_secondary product_btn">
                 {% if product.available %}
-                  add to cart
+                  <span class="product_btn-text">add to cart</span>
+                  <span class="button_spinner" style="display: none;">
+                    {% render 'spinner-icon' %}
+                  </span>
                 {% else %}
                   out of stock
                 {% endif %}
@@ -102,26 +114,28 @@
               name="quantity"
               value="1">
           </div>
-        {% endform %}
+        </form>
       </div>
     </div>
-    <div class="mt-3">
-      <h4 class="heading-4 uppercase">
-        {{ section.settings.title }}
-      </h4>
-      <div class="mt-1 grid-cols-4 gap-2">
-        {% for recommended_product in product.metafields.custom.recommended_products.value %}
-          {% render 'product-card'
-            , product-item: recommended_product %}
-        {% endfor %}
+    {% if product.metafields.custom.recommended_products.value %}
+      <div class="mt-3">
+        <h4 class="heading-4 uppercase">
+          {{ section.settings.title }}
+        </h4>
+        <div class="mt-1 grid-cols-4 gap-2">
+          {% for recommended_product in product.metafields.custom.recommended_products.value %}
+            {% render 'product-card'
+              , product-item: recommended_product %}
+          {% endfor %}
+        </div>
+        <div class="flex justify-center mt-3">
+          {% assign product_collection = product.collections | first %}
+          <a href="{{product_collection.url}}" class="button button_secondary">
+            show more
+          </a>
+        </div>
       </div>
-      <div class="flex justify-center mt-3">
-        {% assign product_collection = product.collections | first %}
-        <a href="{{product_collection.url}}" class="button button_secondary">
-          show more
-        </a>
-      </div>
-    </div>
+    {% endif %}
   </div>
 </section>
 

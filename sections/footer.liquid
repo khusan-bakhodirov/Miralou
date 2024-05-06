@@ -79,7 +79,7 @@
               </h6>
               <ul class="flex flex-col gap-1">
                 <li>
-                  <a class="paragraph-4 white" href="#">{{ shop.address }}</a>
+                  <a class="paragraph-4 white" href="#">{{ shop.address.address1 }}</a>
                 </li>
                 <li>
                   <a class="paragraph-4 white" href="phone:{{shop.phone}}">{{ shop.phone }}</a>
@@ -96,7 +96,7 @@
     </div>
     <div class="line"></div>
     <div class="footer_bottom flex flex-between mt-1">
-      <h6 class="heading-6 white">
+      <h6 class="heading-6 white uppercase">
         Copyright ©
         <span id="year"></span>
         {{ shop.name }}

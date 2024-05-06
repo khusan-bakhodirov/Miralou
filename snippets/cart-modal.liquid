@@ -1,0 +1,25 @@
+{{"cartModal.css" |  asset_url |  stylesheet_tag}}
+
+<form  action="{{ routes.cart_url }}" method="POST" novalidate class="cart_modal">
+    <div class="cart_modal-container">
+        <div class="modal_close">
+            {% render 'close-icon' %}
+        </div>
+        <p class="paragraph-3">
+        Item added to your cart
+    </p>
+    <div class="item_container">
+        <div>
+            <img class="cart_item-img" src="{{"logo.png" |  file_url}}" width="auto" height="auto" alt="">
+        </div>
+        <div class="cart_item-text flex flex-col">
+            <h6 class="heading-6 item_title">Lantern Bag</h6>
+            <p class="pragraph-4 item_variant">Size: 6</p>
+        </div>
+    </div>
+    <a href="{{routes.cart_url}}" class="cart_modal-btn cart_count button button_outline">View Cart ({{cart.item_count}})</a>
+    <button type="submit" class="cart_modal-btn button button_primary">Checkout</button>
+    <a class="btn_continue" href="{{routes.all_products_collection_url}}">Countinue shopping</a>
+    </div>
+    
+</form>
