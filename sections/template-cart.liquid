@@ -24,7 +24,7 @@
                   width="auto"
                   height="auto"
                   alt="">
-                <h5 class="heading-5 uppercase">{{ product-item.title |  truncate: 20}}</h5>
+                <h5 class="heading-5 uppercase cart_item-title">{{ product-item.title |  truncate: 20}}</h5>
               </div>
               <div class="flex items-center product_item-quantity">
                 <button
@@ -63,9 +63,9 @@
               </h5>
             </div>
           </div>
-          <div class="mt-2 flex gap-1">
-            <button class="button button_secondary" type="submit" name="checkout">Proceed to checkout</button>
-            <a href="{{routes.all_products_collection_url}}" class="button button_outline">Continue shopping</a>
+          <div class="mt-2 cart_total-btns flex gap-1">
+            <button class="button button_secondary cart_total-btn" type="submit" name="checkout">Proceed to checkout</button>
+            <a href="{{routes.all_products_collection_url}}" class="button button_outline cart_total-btn">Continue shopping</a>
           </div>
         </div>
       </form>
