@@ -1,20 +1,32 @@
 {{ 'featuredCollections.css' | asset_url | stylesheet_tag }}
 
+<style>
+  :root {
+    --section-bg-img: {% if section.settings.background_color == blank %}
+      url('categories-decoration.png')
+      {% else %}
+      ''
+  {% endif %};
+  --section-bg-color: {{ section.settings.background_color }}
+}
+</style>
+
+
 <section class="featured_collections">
   <div class="container featured_collections-container">
     <h2 class="featured_collections-title">
       {{ section.settings.title }}
     </h2>
     <div class="featured_collections-subtitle">
-        {% if section.settings.subtitle != blank %}
-      
-            {{ section.settings.subtitle }}
-          
-        {% else %}
-          <p class="featured_collections-subtitle">
-            Pick a category you needs
-          </p>
-        {% endif %}
+      {% if section.settings.subtitle != blank %}
+
+        {{ section.settings.subtitle }}
+
+      {% else %}
+        <p class="featured_collections-subtitle">
+          Pick a category you needs
+        </p>
+      {% endif %}
     </div>
 
     <div class="featured_card-container">
@@ -42,6 +54,11 @@
 
 {% schema %}
   {
+    "presets": [
+      {
+        "name": "Featured Collections"
+      }
+    ],
     "name": "Featured Collections",
     "settings": [
       {
@@ -53,6 +70,10 @@
         "type": "richtext",
         "id": "subtitle",
         "label": "Subtitle"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "background color"
       }
     ],
     "blocks": [
