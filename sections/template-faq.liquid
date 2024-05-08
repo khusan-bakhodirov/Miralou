@@ -1,1 +1,82 @@
-faq 
+{{'faq.css' |  asset_url |  stylesheet_tag}}
+<script src="{{ 'faq.js' | asset_url }}" defer></script>
+
+{% render 'breadcrumbs', page-title: 'FAQ' %}
+<section class="faq">
+    <img class="faq_decoration" src="{{'categories-decoration.png' |  file_url}}" width="auto" height="auto" alt="">
+    <div class="container">
+        <div class="flex justify-center gap-1 faq_search-container">
+            <input type="text" class="faq_search-input" placeholder="What can we help you to find?">
+            <button class="button button_primary">Search</button>
+        </div>
+        <div>
+            <div class="faq_line"></div>
+            <div class="faq_dropdown-wrapper mt-2 mb-2">
+                <div class="dropdown_wrapper-title">
+                   <h4 class="heading-4 white uppercase">Miralou  2021</h4>
+                </div>
+                <div class="dropdown_container">
+                   <div class="faq_dropdown">
+                    <button class="button faq_button button_outline">Elementum odio sagittis, interdum {% render 'arrowRight-icon' %}</button>
+                    <p class="paragraph-5 gray-secondary faq_dropdown-text">Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. </p>
+                   </div>
+                   <div class="faq_dropdown">
+                    <button class="button faq_button button_outline">Elementum odio sagittis, interdum {% render 'arrowRight-icon' %}</button>
+                    <p class="paragraph-5 gray-secondary faq_dropdown-text">Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. </p>
+                   </div>
+                   <div class="faq_dropdown">
+                    <button class="button faq_button button_outline">Elementum odio sagittis, interdum {% render 'arrowRight-icon' %}</button>
+                    <p class="paragraph-5 gray-secondary faq_dropdown-text">Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. </p>
+                   </div>
+                   <div class="faq_dropdown">
+                    <button class="button faq_button button_outline">Elementum odio sagittis, interdum {% render 'arrowRight-icon' %}</button>
+                    <p class="paragraph-5 gray-secondary faq_dropdown-text">Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. </p>
+                   </div>
+
+                </div>
+            </div>
+            <div class="faq_line"></div>
+            <div class="faq_dropdown-wrapper mt-2">
+                <div class="dropdown_wrapper-title">
+                   <h4 class="heading-4  uppercase">About order</h4>
+                </div>
+                <div class="dropdown_container">
+                   <div class="faq_dropdown">
+                    <button class="button faq_button button_outline">Elementum odio sagittis, interdum {% render 'arrowRight-icon' %}</button>
+                    <p class="paragraph-5 gray-secondary faq_dropdown-text">Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. </p>
+                   </div>
+                   <div class="faq_dropdown">
+                    <button class="button faq_button button_outline">Elementum odio sagittis, interdum {% render 'arrowRight-icon' %}</button>
+                    <p class="paragraph-5 gray-secondary faq_dropdown-text">Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. </p>
+                   </div>
+                   <div class="faq_dropdown">
+                    <button class="button faq_button button_outline">Elementum odio sagittis, interdum {% render 'arrowRight-icon' %}</button>
+                    <p class="paragraph-5 gray-secondary faq_dropdown-text">Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. </p>
+                   </div>
+                   <div class="faq_dropdown">
+                    <button class="button faq_button button_outline">Elementum odio sagittis, interdum {% render 'arrowRight-icon' %}</button>
+                    <p class="paragraph-5 gray-secondary faq_dropdown-text">Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. </p>
+                   </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center mt-2">
+            <button class="button button_secondary">show more</button>
+        </div>
+
+        <div class=" contact_container">
+            <h4 class="heading-4 red uppercase contact_title">
+                Have any questions?
+            </h4>
+            <div class="form_container">
+                <input type="email" placeholder="type your email" class="contact_input">
+                <input type="text" placeholder="enter name" class="contact_input">
+                <textarea placeholder="type here" class="contact_input" rows="5"></textarea>
+                <button class="button button_secondary">Submit</button>
+            </div>
+        </div>
+    </div>
+    <img class="contact_decoration" src="{{"testimonials-decoration.png" |  file_url}}" width="auto" height="auto" alt="decroration" aria-hidden>
+
+</section>

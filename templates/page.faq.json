@@ -1,8 +1,22 @@
 {
-    "sections": {
-        "faq": {
-            "type": "template-faq"
-        }       
+  "sections": {
+    "faq": {
+      "type": "template-faq",
+      "settings": {
+      }
     },
-    "order": ["faq"]
+    "section_newsletter_ya89Ce": {
+      "type": "section-newsletter",
+      "settings": {
+        "title": "our newsseller",
+        "subtitle": "<p>Subscribe to get more useful information about us and to get you 15% discount offyour next purchase  <\/p>",
+        "button_type": "primary",
+        "button_label": "Subscribe"
+      }
+    }
+  },
+  "order": [
+    "faq",
+    "section_newsletter_ya89Ce"
+  ]
 }
