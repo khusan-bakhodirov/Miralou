@@ -1,0 +1,99 @@
+{
+  "sections": {
+    "about-us": {
+      "type": "template-about-us",
+      "settings": {
+      }
+    },
+    "section_featured_collections_aRpQ7f": {
+      "type": "section-featured-collections",
+      "blocks": {
+        "collection_GEWhVz": {
+          "type": "collection",
+          "settings": {
+            "collection_array": "women",
+            "collection_image": "shopify:\/\/shop_images\/categories-2.png"
+          }
+        },
+        "collection_Eqqxkz": {
+          "type": "collection",
+          "settings": {
+            "collection_array": "men",
+            "collection_image": "shopify:\/\/shop_images\/categories-3.png"
+          }
+        },
+        "collection_89RBgN": {
+          "type": "collection",
+          "settings": {
+            "collection_array": "kids",
+            "collection_image": "shopify:\/\/shop_images\/categegories-1.png"
+          }
+        }
+      },
+      "block_order": [
+        "collection_GEWhVz",
+        "collection_Eqqxkz",
+        "collection_89RBgN"
+      ],
+      "settings": {
+        "title": "shop by categories",
+        "subtitle": "",
+        "background_color": "#f6f6f6"
+      }
+    },
+    "section_testimonials_McVzF3": {
+      "type": "section-testimonials",
+      "settings": {
+        "title": "what people say about us"
+      }
+    },
+    "section_logos_yfDr9Q": {
+      "type": "section-logos",
+      "blocks": {
+        "text_jkgJft": {
+          "type": "text",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/image_1.png"
+          }
+        },
+        "text_TGkV7z": {
+          "type": "text",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Logo_2.png"
+          }
+        },
+        "text_JtiXHz": {
+          "type": "text",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/image_3.png"
+          }
+        },
+        "text_dU4JHA": {
+          "type": "text",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/image_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "text_jkgJft",
+        "text_TGkV7z",
+        "text_JtiXHz",
+        "text_dU4JHA"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "team": {
+      "type": "section-team"
+    }
+  },
+  "order": [
+    "about-us",
+    "section_featured_collections_aRpQ7f",
+    "section_testimonials_McVzF3",
+    "team",
+    "section_logos_yfDr9Q"
+  ]
+}

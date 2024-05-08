@@ -30,10 +30,12 @@
       <ul class="list_items">
         {% for item in main_menu_linklist %}
           <li class="list_item">
-            <a class="heading-6  items-center" href="{{item.url}}">{{ item.title | upcase }} {% if item.links.size > 0 %}
-              <span>{% render 'arrowDown' %}</span>
-            {% endif %} </a>
-           {% if item.links.size > 0 %}
+            <a class="heading-6  items-center" href="{{item.url}}">{{ item.title | upcase }}
+              {% if item.links.size > 0 %}
+                <span>{% render 'arrowDown' %}</span>
+              {% endif %}
+            </a>
+            {% if item.links.size > 0 %}
               <ul class="sublinks">
                 {% for sublink in item.links %}
                   <li class="sublink">
@@ -41,7 +43,7 @@
                   </li>
                 {% endfor %}
               </ul>
-            {% endif %} 
+            {% endif %}
           </li>
         {% endfor %}
       </ul>
@@ -56,15 +58,16 @@
           {% render 'search-icon' %}
         </button>
       </form>
-      {% render 'heart-icon' %}
+      <a href="{{routes.about_us_url}}">
+
+        {% render 'heart-icon' %}
+      </a>
       <a href="{{routes.cart_url}}" class="navbar_cart">
 
         {% render 'cart-icon' %}
         {% if cart.item_count > 0 %}
 
-          <span>
-           
-          </span>
+          <span></span>
         {% endif %}
       </a>
     </div>

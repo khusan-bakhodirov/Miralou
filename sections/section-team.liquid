@@ -1,0 +1,81 @@
+{{'team.css' |  asset_url |  stylesheet_tag}}
+
+<section class="team">
+    <div class="container">
+        <h3 class="heading-3 uppercase">our team</h3>
+        <p class="paragraph-2 secondary-gray">Professionals that works with us</p>
+        <div class="grid-cols-4 gap-2 mt-2">
+            {% for block in section.blocks %}
+                <div class="team_card">
+                    <img src="{{block.settings.employee_image |  image_url}}" width="auto" height="auto" alt="">
+                    <p class="paragraph-4">{{block.settings.employee_position}}</p>
+                    <h6 class="heading-6 uppercase">{{block.settings.employee_name}}</h6>
+                    <div class="team_icons">
+                        <a class="team_icon" href="{{block.settings.employee_telegram}}">{% render 'phone-icon' %}</a>
+                        <a class="team_icon" href="{{block.settings.employee_email}}">{% render 'email-icon' %}</a>
+                        <a class="team_icon" href="{{block.settings.employee_twitter}}">{% render 'twitter-icon' %}</a>
+                        <a class="team_icon facebook" href="{{block.settings.employee_facebook}}">{% render 'facebook-icon' %}</a>
+                    </div>
+                    <p class="paragraph-4 secondary-gray text-center">
+                        {{block.settings.employee_desc}}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+    {
+        "name": "Team section",
+        "blocks": [{
+              "type": "text",
+              "name": "team",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "employee_image",
+                        "label": "employee image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "employee_position",
+                        "label": "employee position"
+                    },
+                    {
+                        "type": "text",
+                        "id": "employee_name",
+                        "label": "employee name"
+                    },
+                    {
+                        "type": "text",
+                        "id": "employee_telegram",
+                        "label": "employee telegram link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "employee_email",
+                        "label": "employee email address"
+                    },
+                    {
+                        "type": "text",
+                        "id": "employee_twitter",
+                        "label": "employee twitter link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "employee_facebook",
+                        "label": "employee facebook link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "employee_desc",
+                        "label": "description",
+                        "default": "Ut donec suscipit nunc volutpat faucibus."
+                    }
+                
+                ]   
+        }]
+    }
+{% endschema %}

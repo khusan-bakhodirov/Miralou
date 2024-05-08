@@ -10,7 +10,6 @@ const price = document.querySelector('.product_exact-price')
 const compare_price = document.querySelector('.prodcut_compare-price');
 const product_form  = document.querySelector('.product_form');
 const product_quantity = document.querySelector('[name=quantity]')
-const product_variant = document.querySelector('[name=id]');
 const cart_modal = document.querySelector('.cart_modal');
 const cart_modal_close = document.querySelector('.modal_close');
 const product_btn = document.querySelector('.product_btn');
@@ -23,7 +22,7 @@ product_form.addEventListener('submit', async (e) => {
   product_btn.querySelector('.button_spinner').style.display = 'block';
   const form_data  = new FormData(product_form);
   form_data.append('quantity', product_quantity.value);
-  form_data.append('id', product_variant.value);
+  form_data.append('id', document.querySelector('[name=id]').value);
   const res = await  fetch('/cart/add.js', {
     method: 'POST',
     body: form_data,
@@ -33,7 +32,6 @@ product_form.addEventListener('submit', async (e) => {
   })
   const cart_res = await fetch('/cart.js');
   const cart = await cart_res.json();
-  console.log(cart)
   const data = await res.json();
   if(data) {
     product_btn.disabled = false;
@@ -103,13 +101,15 @@ product_variants.forEach((variant, index) => {
 product_variants.forEach((variant) => {
   variant.addEventListener("click", () => {
     product_variants.forEach((item) => {
-      item.querySelector("input").setAttribute("name", "");
+      item.querySelector("input").removeAttribute("name");
       item.classList.remove("selected_variant");
     });
     variant.querySelector("input").setAttribute("name", "id");
     variant.classList.add("selected_variant");
     price.textContent = formatPrice(variant.getAttribute('data-price'));
-    compare_price.textContent = formatPrice( variant.getAttribute('data-compare'));
+    if(compare_price) {
+      compare_price.textContent = formatPrice( variant.getAttribute('data-compare'));
+    }
   });
 });
 

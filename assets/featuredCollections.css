@@ -1,10 +1,11 @@
 .featured_collections {
     padding-top: 7rem;
     padding-bottom: 5rem;
-    background-image: url('categories-decoration.png');
+    background-image:  var(--section-bg-img);
     background-position: top top;
     background-repeat: no-repeat;
     background-size: 100% 50rem;
+    background-color: var(--section-bg-color);
 }
 
 .featured_collections-title {

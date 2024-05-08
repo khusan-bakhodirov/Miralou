@@ -5,11 +5,6 @@
     "phone_number": "(808) 555-0111",
     "email": "miralou.conacts@example.com",
     "sections": {
-      "css-vars": {
-        "type": "css-vars",
-        "settings": {
-        }
-      },
       "navbar": {
         "type": "navbar",
         "settings": {
