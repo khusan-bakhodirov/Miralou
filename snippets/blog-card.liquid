@@ -1,7 +1,16 @@
-{{"blog-card.css" |  asset_url |  stylesheet_tag}}
-<div class="blog">
-    <img src="{{blog-item.image |  image_url }}" width="100%" height="auto" alt="article">
-    <p class="paragraph-5 secondary-gray">{{blog-item.updated_at | date: '%B %d %Y'}}</p>
-    <h6 class="heading-6 red uppercase">{{blog-item.title}}</h6>
-    <a href="" class="paragraph-5 ">Read more  &rarr;</a>
+{{'blog-card.css' |  asset_url |  stylesheet_tag}}
+
+<div class="blog_card">
+    <img class="blog_card-img" src="{{blog-item.image |  image_url }}" width="auto" height="auto" alt="">
+    <div class="flex gap-1">
+        <p class="paragraph-5 red uppercase">{{blog-item.created_at | date: '%B %d %Y'}}</p>
+        <p class="paragraph-5 secondary-gray">by {{blog-item.author}}</p>
+    </div>
+    <h5 class="heading-5 uppercase">
+        {{blog-item.title}}
+    </h5>
+    <div class="paragraph-4 secondary-gray">
+        {{blog-item.content |  truncatewords: 60}}
+    </div>
+    <a href="{{blog-item.url}}">read more &rarr;</a>
 </div>

@@ -1,8 +1,74 @@
 {{"blog.css" |  asset_url |  stylesheet_tag}}
 
 {% render 'breadcrumbs', page-title: 'Blog' %}
-
+{% assign blog_per_page = 2 %}
 <section class="blog">
     <img class="blog_decoration" src="{{'categories-decoration.png' | file_url}}" width="auto" height="auto" alt="">
-    <div class="container"></div>
+    <div class="container">
+    <div class="blog_header">
+        <div class="blog_header-left">
+            <input type="text" placeholder="search" class="blog_input">
+            <span class="search_icon">{% render 'search-icon' %}</span>
+        </div>
+        <div class="blog_header-right">
+            <div>
+                <h6 class="heading-6 white mb-1 uppercase">Categories</h6>
+                <ul class="flex flex-col gap-1">
+                    <li class="paragraph-5 secondary-gray">Lifestyle</li>
+                    <li class="paragraph-5 secondary-gray">Fashion</li>
+                    <li class="paragraph-5 secondary-gray">Sport</li>
+                    <li class="paragraph-5 secondary-gray">Development</li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="heading-6 white mb-1 uppercase">Categories</h6>
+                <ul class="flex flex-col gap-1">
+                    <li class="paragraph-5 secondary-gray">Lifestyle</li>
+                    <li class="paragraph-5 secondary-gray">Fashion</li>
+                    <li class="paragraph-5 secondary-gray">Sport</li>
+                    <li class="paragraph-5 secondary-gray">Development</li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="heading-6 white mb-1 uppercase">Categories</h6>
+                <ul class="flex flex-col gap-1">
+                    <li class="paragraph-5 secondary-gray">Lifestyle</li>
+                    <li class="paragraph-5 secondary-gray">Fashion</li>
+                    <li class="paragraph-5 secondary-gray">Sport</li>
+                    <li class="paragraph-5 secondary-gray">Development</li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="heading-6 white mb-1 uppercase">Categories</h6>
+                <ul class="flex flex-col gap-1">
+                    <li class="paragraph-5 secondary-gray">Lifestyle</li>
+                    <li class="paragraph-5 secondary-gray">Fashion</li>
+                    <li class="paragraph-5 secondary-gray">Sport</li>
+                    <li class="paragraph-5 secondary-gray">Development</li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="heading-6 white mb-1 uppercase">Categories</h6>
+                <ul class="flex flex-col gap-1">
+                    <li class="paragraph-5 secondary-gray">Lifestyle</li>
+                    <li class="paragraph-5 secondary-gray">Fashion</li>
+                    <li class="paragraph-5 secondary-gray">Sport</li>
+                    <li class="paragraph-5 secondary-gray">Development</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+      <div class="flex flex-col gap-3">
+        {% paginate blog.articles by blog_per_page %}
+           
+            {% for item in blog.articles %}
+                {% render 'blog-card', blog-item: item %}
+            {% endfor %}
+            <div class="flex justify-center">
+
+                {% render 'pagination' pagination: paginate %}
+            </div>
+        {% endpaginate %}
+      </div>
+    </div>
 </section>

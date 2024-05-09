@@ -15,7 +15,7 @@
         {% for blog in section.blocks %}
 
           <div class="swiper-slide">
-            {% render 'blog-card'
+            {% render 'news-card'
               , blog-item: blog.settings.selected_blog %}
           </div>
         {% endfor %}
