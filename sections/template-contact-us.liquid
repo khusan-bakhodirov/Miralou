@@ -1,0 +1,78 @@
+{{"contact-us.css" |  asset_url |  stylesheet_tag}}
+
+
+{% render 'breadcrumbs', page-title: "Contact Us" %}
+<section class="contact">
+    <img src="{{'categories-decoration.png' |  file_url }}" class="contact_decoration" width="auto" height="auto" alt="decoration">
+    <div class="container">
+        <div class="address_container">
+            <div class="address_container-left">
+                <h5 class="heading-5 white uppercase text-center">Miralou №1</h5>
+                <a class="paragraph-5 white address_container-text" href="">
+                    <span>
+                        {% render 'mapPin-icon' %}
+                    </span>
+                    2715 Ash Dr. San Jose, South Dakota 83475
+                </a>
+                <a class="paragraph-5 white address_container-text" href="">
+                    <span>
+                        {% render 'phone-icon' %}
+                    </span>
+                    {{shop.phone}}
+                </a>
+                <a class="paragraph-5 white address_container-text" href="">
+                    <span>
+                        {% render 'email-icon' %}
+                    </span>
+                  {{shop.email}}
+                </a>
+                <h5 class="heading-5 white uppercase text-center">Miralou №1</h5>
+                <a class="paragraph-5 white address_container-text" href="">
+                    <span>
+                        {% render 'mapPin-icon' %}
+                    </span>
+                    2715 Ash Dr. San Jose, South Dakota 83475
+                </a>
+                <a class="paragraph-5 white address_container-text" href="">
+                    <span>
+                        {% render 'phone-icon' %}
+                    </span>
+                    {{shop.phone}}
+                </a>
+                <a class="paragraph-5 white address_container-text" href="">
+                    <span>
+                        {% render 'email-icon' %}
+                    </span>
+                  {{shop.email}}
+                </a>
+
+                <div class="flex gap-1 justify-center">
+                    <a href="" class="social_icon">{% render 'facebook-icon' %}</a>
+                    <a href="" class="social_icon">{% render 'vinemo-icon' %}</a>
+                    <a href="" class="social_icon">{% render 'instagram-icon' %}</a>
+                    <a href="" class="social_icon">{% render 'twitter-icon' %}</a>
+
+                </div>
+            </div>
+            <div class="address_map">
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93877.69209782431!2d-73.8930830235325!3d42.66818109880528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de0a34cc4ffb4b%3A0xe1a16312a0e728c4!2z0J7Qu9Cx0LDQvdC4LCDQndGM0Y4t0JnQvtGA0LosINCh0KjQkA!5e0!3m2!1sru!2s!4v1715181476432!5m2!1sru!2s" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        </div>
+        <div class="contact_form">
+            <div class="container contact_form-container">
+                <div class="contact_form-left">
+                    <h4 class="heading-4 red uppercase">get in touch</h4>
+                    <p class="paragraph-2 mt-2">
+                        Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. Elementum odio sagittis, interdum elit ipsum. Volutpat erat ac eu aliquam turpis. Ullamcorper consequat donec euismod mi pulvinar.
+                    </p>
+                </div>
+                <div class="contact_form-right">
+                    <input type="email" placeholder="type your email" class="contact_input">
+                    <input type="text" placeholder="enter name" class="contact_input">
+                    <textarea placeholder="type here" class="contact_input" rows="5"></textarea>
+                    <button class="button button_secondary">Submit</button>
+                </div>
+            </div>
+        </div>
+</section>
