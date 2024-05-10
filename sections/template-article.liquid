@@ -69,9 +69,19 @@
                     {{article.content}}
                 </div>
                 <h4 class="heading-4 uppercase">comments on {{article.title}} ({{article.comments_count}})</h4>
-                <div>
+                <div class="article_comment-container">
                     {% for item in article.comments %}
-                        <h4>{{item.author}}</h4>
+                        <div class="article_comment">
+                            <img src="{{'comments-img.png' |  file_url}}" width="auto" height="auto" alt="comment image">
+                            <div>
+                                <h5 class="heading-5 uppercase">
+                                    {{item.author}}
+                                </h5>
+                                <p class="paragpraph-4 article_comment-body">
+                                    {{item.content}}
+                                </p>
+                            </div>
+                        </div>
                     {% endfor %}
                 </div>
             {% form 'new_comment', article %}

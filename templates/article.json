@@ -1,8 +1,52 @@
 {
-    "sections": {
-        "article": {
-            "type": "template-article"
-        }
+  "sections": {
+    "article": {
+      "type": "template-article",
+      "settings": {
+      }
     },
-    "order": ["article"]
+    "section_featured_blogs_yTCLjA": {
+      "type": "section-featured-blogs",
+      "blocks": {
+        "article_cgJWUY": {
+          "type": "article",
+          "settings": {
+            "selected_blog": "news\/quis-egestas-consectetur-1"
+          }
+        },
+        "article_BFQeGG": {
+          "type": "article",
+          "settings": {
+            "selected_blog": "news\/eu-morbi-suspendisse"
+          }
+        },
+        "article_nze4eJ": {
+          "type": "article",
+          "settings": {
+            "selected_blog": "news\/auctor-etiam-elit"
+          }
+        },
+        "article_Hrfbn3": {
+          "type": "article",
+          "settings": {
+            "selected_blog": "news\/quis-egestas-consectetur"
+          }
+        }
+      },
+      "block_order": [
+        "article_cgJWUY",
+        "article_BFQeGG",
+        "article_nze4eJ",
+        "article_Hrfbn3"
+      ],
+      "settings": {
+        "title": "latest news",
+        "subtitle": "<p>Nunc rhoncus auctor risus tempor lacus urna, id laoreet sed. Euismod nisl pellentesque risus cursus fringilla tincidunt volutpat, non.<\/p>"
+      }
+    }
+  },
+  "order": [
+    "article",
+    "section_featured_blogs_yTCLjA"
+  ]
 }

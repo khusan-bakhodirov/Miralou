@@ -83,3 +83,34 @@
     flex-direction: column;
     gap: 1.5rem;
 }
+
+.article_comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.article_comment {
+    width: 100%;
+    padding: 3rem;
+    display: flex;
+    gap: 2rem;
+    background-color: var(--third-gray);
+}
+
+.article_comment img{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+}   
+
+.article_comment div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.article_comment-body {
+    width: 85%;
+}
