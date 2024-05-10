@@ -14,6 +14,8 @@ const cart_modal = document.querySelector('.cart_modal');
 const cart_modal_close = document.querySelector('.modal_close');
 const product_btn = document.querySelector('.product_btn');
 const cart_count = document.querySelector('.cart_count');
+const wishlist_btn = document.querySelector('button_wishlist');
+const customer = document.querySelector('.customer_id')
 // handle product add
 product_form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -113,6 +115,38 @@ product_variants.forEach((variant) => {
   });
 });
 
+function updateWishlist(customerId, productId, productTitle) {
+  fetch('/account/update', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'xmlhttprequest'
+    },
+    body: JSON.stringify({
+      form_type: 'customer',
+      customer: {
+        id: customerId,
+        metafields: {
+          wishlist: {
+            [productId]: productTitle
+          }
+        }
+      }
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      // Wishlist updated successfully
+      // Update UI accordingly
+    } else {
+      // Handle error
+    }
+  });
+}
+
+wishlist_btn.addEventListener('click', () => {
+  updateWishlist(customer.value, document.querySelector('[name=id]').value, document.querySelector('.product_title').textContent);
+})
 // SWIPER JS
 let swiper = new Swiper(".mobile_product-gallery", {
   slidesPerView: 1,
