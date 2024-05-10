@@ -1,11 +1,18 @@
+{{'404.css' |  asset_url |  stylesheet_tag}}
+
 <section class="not_found">
-    <div class="container">
-        <h1 class="heading-1 red uppercase">
+    <div class="container flex justify-center">
+       <div class="not_found-content">
+        <h1 class="heading-1 red uppercase text-center">
             404 <br>
             page not found
         </h1>
-        <p class="paragraph-2 secondary-gray">We haven’t found this page, there is something wrong with your internet connection.</p>
-        <input type="text" placeholder="search for what you are interested" class="not_found-input">
-        <p class="paragraph-5 secondary-gray">go back to <span class="red">home</span> or <span class="red">blog</span></p>
+        <p class="paragraph-2 secondary-gray text-center">We haven’t found this page, there is something wrong with your internet connection.</p>
+        <div class="input_container">
+            <input type="text" placeholder="search for what you are interested" class="not_found-input">
+            {% render 'search-icon' %}
+        </div>
+        <p class="paragraph-5 secondary-gray">go back to <a href="{{routes.root_url}}" class="red">home</a> or <a href="{{routes.blog_url}}" class="red">blog</a></p>
+       </div>
     </div>
 </section>
