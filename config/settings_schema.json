@@ -144,6 +144,36 @@
         "default": "https://vine.co/"
       }
     ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "choose cart type",
+        "options": [
+          {
+            "label": "default cart",
+            "value": "default"
+          },
+          {
+            "label": "drawer cart",
+            "value": "drawer"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Upsell products",
+    "settings": [
+      {
+        "type": "product_list",
+        "id": "upsell_products",
+        "label": "choose products"
+      }
+    ]
   }
   
 ]

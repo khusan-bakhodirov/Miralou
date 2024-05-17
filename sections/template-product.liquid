@@ -48,8 +48,14 @@
       </div>
 
       <div class="product_info">
+
         <form
-          class="product_form"
+          class=" {% if settings.cart_type == 'default' %}
+            product_forms
+            
+            {% else %}
+            product_form
+          {% endif %}"
           action="/cart/add"
           method="post">
           <div class="flex flex-col gap-2">
@@ -100,7 +106,10 @@
                 {% endif %}
               </button>
               <button type="button" class="button button_wishlist button_outline product_btn">Add to Whishlist</button>
-              <input type="hidden" class="customer_id" value="{{customer.id}}" >
+              <input
+                type="hidden"
+                class="customer_id"
+                value="{{customer.id}}">
             </div>
 
             <button type="button" class="button btn_description button_outline product_btn flex flex-between items-center">

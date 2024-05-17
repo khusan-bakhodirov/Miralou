@@ -1,0 +1,100 @@
+{{"cartModal.css" |  asset_url |  stylesheet_tag}}
+<script src="{{ 'cart-modal.js' | asset_url }}" defer></script>
+
+
+
+<form  action="{{ routes.cart_url }}" method="POST" novalidate class="cart_modal">
+    <div class="cart_modal-wrapper">
+      <div class="cart_modal-container">
+        <div class="cart_modal-header">
+            <h3 class="heading-3 uppercase cart_modal-title">YOUR CART</h3>
+        </div>
+        <div class="modal_close">
+            {% render 'close-icon' %}
+        </div>
+      
+    <div class="item_container">
+       {% form 'cart', cart %}
+        {% if cart.item_count == 0 %}
+            <div class="flex justify-center items-center">
+
+                <h4 class="heading-4">Your cart is empty</h4>
+            </div>
+            {% else %}
+                
+            {% for item in cart.items %}
+                <div class="cart_item">
+            <div>
+                <img class="cart_item-img" src="{{item.image |  image_url }}" width="auto" height="auto" alt="">
+            </div>
+            <div class="cart_item-text flex flex-col uppercase">
+                <h6 class="heading-6 ">{{item.title |  truncate: 16}}</h6>
+                <h6 class="heading-6  secondary-gray ">Size: {{item.variant.title}}</h6>
+                <h6 class="heading-6 red">{{item.final_price |  money}}</h6>
+            </div>
+            <div class="flex items-center product_item-quantity">
+                <button
+                type="button"
+                  class="quantity-change"
+                  data-key="{{item.variant_id}}"
+                  data-change="decrease">{% render 'arrowLeft-icon' %}</button>
+                <div class="product_quantity">
+                    {{item.quantity}}
+                </div>
+                <button
+                    type="button"
+                  class="quantity-change"
+                  data-key="{{item.variant_id}}"
+                  data-change="increase">{% render 'arrowRight-icon' %}</button>
+              </div>
+              <div  class="remove_btn">
+    
+              {% render 'close-icon' %}
+            </div>
+           </div>
+            {% endfor %}
+        {% endif %}
+       {% endform %}
+    </div>
+    <div class="cart_modal-footer">
+        <div class="flex flex-between heading-5 white uppercase">
+                <h5 class="">
+                    total
+                </h5>
+                 <h5>
+                    {{cart.total_price |  money}}
+                 </h5>   
+        </div>
+            <button type="submit" name="checkout" class="button button_primary uppercase cart_modal-button mt-3">
+                Checkout
+            </button>
+    </div>
+      </div>
+    <div class="upsell">
+        <h5 class="heading-5 uppercase text-center mb-1">
+            you may also like this
+        </h5>
+        <div class="swiper cartSwiper mt-2">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper ">
+    {% for item in settings.upsell_products %}
+        
+        <div class="swiper-slide">
+            {% render 'upsell-card', product-item: item %}
+        </div>
+    {% endfor %}
+    
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+
+</div>
+    </div>
+    </div>
+
+</form>

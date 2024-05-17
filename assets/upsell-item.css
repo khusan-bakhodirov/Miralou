@@ -1,0 +1,16 @@
+.upsell_img-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.upsell_item-image {
+    width: 80%;
+    object-fit: cover;
+    height: 14rem;
+}
+
+.upsell_btn {
+    cursor: pointer;
+}
+

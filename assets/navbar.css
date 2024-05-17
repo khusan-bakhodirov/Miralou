@@ -62,11 +62,12 @@
   z-index: 100;
 }
 
-.navbar_cart {
+.navbar_cart, .navbar_cart-icon {
   position: relative;
+  cursor: pointer;
 }
 
-.navbar_cart span {
+.navbar_cart span, .navbar_cart-icon span {
   position: absolute;
   top: 0px;
   right: -2px;

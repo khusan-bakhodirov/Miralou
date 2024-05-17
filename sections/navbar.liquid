@@ -62,17 +62,27 @@
 
         {% render 'heart-icon' %}
       </a>
+
+     {% if settings.cart_type == 'default' %}
       <a href="{{routes.cart_url}}" class="navbar_cart">
 
+      {% render 'cart-icon' %}
+      {% if cart.item_count > 0 %}
+
+        <span></span>
+      {% endif %}
+      </a>
+    {% else %}
+      <p class="navbar_cart-icon">
         {% render 'cart-icon' %}
         {% if cart.item_count > 0 %}
 
           <span></span>
         {% endif %}
-      </a>
+      </p>
+     {% endif %}
     </div>
   </div>
-  {% render 'cart-modal' %}
 </header>
 
 

@@ -1,6 +1,12 @@
 {
   "current": {
     "logo_width": 90,
+    "cart_type": "drawer",
+    "upsell_products": [
+      "air-max-270",
+      "air-jordan-1-mid-copy",
+      "air-force-1-07"
+    ],
     "address": "2715 Ash Dr. San Jose, South Dakota 83475",
     "phone_number": "(808) 555-0111",
     "email": "miralou.conacts@example.com",
@@ -39,6 +45,11 @@
           "navigation_pkfTxp",
           "contact_yWqhEd"
         ],
+        "settings": {
+        }
+      },
+      "cart-modal": {
+        "type": "cart-modal",
         "settings": {
         }
       }

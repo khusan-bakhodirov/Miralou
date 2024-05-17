@@ -1,14 +1,8 @@
 {{ "newsletter.css" | asset_url | stylesheet_tag }}
 
 {% form 'customer' %}
-    <section class="newsletter">
-      {% if form.errors %}
-        <div class="errors">
-          {% for error in form.errors %}
-            <p class="white">{{ error.message }}</p>
-          {% endfor %}
-        </div>
-      {% endif %}
+  <section class="newsletter">
+
     <div class="container newsletter_container">
       <div class="newsletter_container-left">
         <h4 class="heading-4 white uppercase">
@@ -19,32 +13,47 @@
         </div>
       </div>
       <div class="newsletter_container-right">
-      {% if form.posted_successfully? %}
-        <p class="white paragraph-2">your email is successfully added</p>
-      {% else %}
-        <input type="hidden" name="contact[tags]" value="newsletter">
-        <input type="email"
-          name="contact[email]"
-          id="Email"
-          value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
-          placeholder="please enter your email"
-          autocorrect="off"
-          autocapitalize="off">
-          <button type="submit" name="commit" class="button button_{{section.settings.button_type}}">{{ section.settings.button_label }}</button>
+        {% if form.posted_successfully? %}
+          <p class="white paragraph-2">your email is successfully added</p>
+        {% else %}
+          {% if form.errors %}
+            <div class="errors">
+              {% for error in form.errors %}
+                <p class="white">{{ error.message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <input
+            type="hidden"
+            name="contact[tags]"
+            value="newsletter">
+          <input
+            type="email"
+            name="contact[email]"
+            id="Email"
+            value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+            placeholder="please enter your email"
+            autocorrect="off"
+            autocapitalize="off">
+          <button
+            type="submit"
+            name="commit"
+            class="button button_{{section.settings.button_type}}">{{ section.settings.button_label }}</button>
         {% endif %}
-        </div>
+      </div>
     </div>
   </section>
 {% endform %}
 
 
-
 {% schema %}
   {
     "name": "Newsletter",
-    "presets": [{
-      "name": "Newsletter"
-    }],
+    "presets": [
+      {
+        "name": "Newsletter"
+      }
+    ],
     "settings": [
       {
         "type": "text",

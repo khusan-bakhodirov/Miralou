@@ -1,5 +1,5 @@
-const list_item = document.querySelectorAll(".list_item");
-list_item.forEach((item) => {
+const list_items = document.querySelectorAll(".list_item");
+list_items.forEach((item) => {
   item.addEventListener("mouseover", () => {
     if (item.querySelector(".sublinks")) {
       item.querySelector(".sublinks").style.display = "flex";
@@ -12,3 +12,7 @@ list_item.forEach((item) => {
   });
 });
 
+document.querySelector('.navbar_cart').addEventListener('click', () => {
+  console.log('hello')
+  window.cart.open()
+})

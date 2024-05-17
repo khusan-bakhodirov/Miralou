@@ -3,7 +3,6 @@ document.querySelectorAll(".quantity-change").forEach(function (button) {
     var itemId = this.getAttribute("data-id");
     var change = this.getAttribute("data-change");
     const input = document.querySelector('.product_quantity');
-    console.log(input)
     var newQuantity = parseInt(input.textContent);
 
     if (change === "increase") {
