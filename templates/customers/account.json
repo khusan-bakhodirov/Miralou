@@ -1,0 +1,8 @@
+{
+    "sections": {
+        "account": {
+            "type": "template-account"
+        }
+    },
+    "order": ["account"]
+}

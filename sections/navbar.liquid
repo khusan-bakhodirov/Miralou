@@ -62,29 +62,36 @@
 
         {% render 'heart-icon' %}
       </a>
-      <a href="{{routes.account_login_url}}">
+      {% if shop.customer_accounts_enabled %}
 
-        {% render 'user-icon' %}
-      </a>
+        <a href="  {% if customer %}
+          {{routes.account_url}}
+          {% else %}
+          {{routes.account_login_url}}
+        {% endif %}">
 
-     {% if settings.cart_type == 'default' %}
-      <a href="{{routes.cart_url}}" class="navbar_cart">
-
-      {% render 'cart-icon' %}
-      {% if cart.item_count > 0 %}
-
-        <span></span>
+          {% render 'user-icon' %}
+        </a>
       {% endif %}
-      </a>
-    {% else %}
-      <p class="navbar_cart-icon">
-        {% render 'cart-icon' %}
-        {% if cart.item_count > 0 %}
 
-          <span></span>
-        {% endif %}
-      </p>
-     {% endif %}
+      {% if settings.cart_type == 'default' %}
+        <a href="{{routes.cart_url}}" class="navbar_cart">
+
+          {% render 'cart-icon' %}
+          {% if cart.item_count > 0 %}
+
+            <span></span>
+          {% endif %}
+        </a>
+      {% else %}
+        <p class="navbar_cart-icon">
+          {% render 'cart-icon' %}
+          {% if cart.item_count > 0 %}
+
+            <span></span>
+          {% endif %}
+        </p>
+      {% endif %}
     </div>
   </div>
 </header>
