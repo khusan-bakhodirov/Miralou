@@ -1,25 +1,72 @@
 {{"product-item.css" |  asset_url |  stylesheet_tag}}
+<script src="{{ 'product-item.js' | asset_url }}" defer></script>
 
-
-<div class="flex flex-col items-center gap-1">
+{% assign event_date = product-item.metafields.custom.release_date.value.release_date | date: '%s' %}
+{% assign today = 'now' | date: '%s' %}
+<div class="flex flex-col items-center gap-1 product_item">
     <div class="product_img-container">
+        <form  action="/cart/add"
+        
+        method="post" class="{% if settings.cart_type == 'default' %}
+            product_overlay-form
+            {% else %}
+            product_overlay
+            
+        {% endif %} product_overlay-container">
+            <h5 class="heading-5 red">
+                choose variant
+            </h5>
+            <select name="variant" class="product_variant-select">
+                {% for variant in product-item.variants %}
+                    <option class="product_variant-option" {% if forloop.index == 1 %}
+                        {% endif %} data-compare="{{variant.compare_at_price}}" data-price="{{variant.price}}"
+                    value="{{variant.id}}">{{variant.title}}</option>
+                {% endfor %}
+            </select>
+            <input
+            type="hidden"
+            class="customer_id"
+            value="{{customer.id}}">
+            <input type="hidden" name="id" value="{{product-item.first_available_variant.id}}">
+            <h6 class="heading-6 red flex gap-1 items-center product_overlay-price">
+                <span class="sale_price">
+                    {% if product-item.compare_at_price > product-item.price %}
+                        {{product-item.selected_or_first_available_variant.compare_at_price | money}}
+                    {% endif %}
+                    </span>
+                    {{product-item.price |  money }}
+            </h6>
+            <input type="hidden" name="quantity" value="1">
+            <button class="button button_dark">add to card</button>
+            <a role="button" href="{{product-item.url}}" class="button button_dark">view product</a>
+
+        </form>
         {% if product-item.available == false %}    
             <p class="img_decoration out_of-stock">out of stock</p>   
         {% endif %}
         {% if product-item.compare_at_price > product-item.price%}    
             <p class="img_decoration on_sale">on sale</p>   
         {% endif %}
+        {% if event_date > today %}
+            <p class="img_decoration available_soon">avialable soon</p>   
+        {% endif %}
         <img src={{product-item.featured_image | image_url }} class="product_item-image" width="auto" height="210px" alt="{{product-item.title}}">
     </div>
     <p class="paragraph-4 secondary-gray">{{product-item.type}}</p>
     <h6 class="heading-6 uppercase">{{product-item.title}}</h6>
-    <h6 class="heading-6 red flex gap-1 items-center">
-        <span class="sale_price">
-            {% if product-item.compare_at_price > product-item.price %}
-                {{product-item.selected_or_first_available_variant.compare_at_price | money}}
-            {% endif %}
-            </span>
-            {{product-item.price |  money }}
+    
+    {% if event_date > today %}
+        <h6 class="heading-6 red release_date" data-date="{{product-item.metafields.custom.release_date.value.release_date | date: "%b %-d, %Y %H:%M:%S" }}" >
         </h6>
+        {% else %}
+        <h6 class="heading-6 red flex gap-1 items-center">
+            <span class="sale_price">
+                {% if product-item.compare_at_price > product-item.price %}
+                    {{product-item.selected_or_first_available_variant.compare_at_price | money}}
+                {% endif %}
+                </span>
+                {{product-item.price |  money }}
+            </h6>
+    {% endif %}
     <a role="button" href="{{product-item.url}}" class="button button_dark">view product</a>
 </div>

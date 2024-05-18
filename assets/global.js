@@ -15,10 +15,7 @@ class Cart {
 
   addListeners() {
     document.querySelectorAll(".remove_btn").forEach((btn, index) => {
-        
-      btn.addEventListener("click", () => 
-        this.removeLineItem(index)
-    );
+      btn.addEventListener("click", () => this.removeLineItem(index));
     });
     // increase
     document
@@ -107,15 +104,57 @@ class Cart {
 
 window.cart = new Cart();
 
-
 const loaderAnimation = (element, loaderSize) => {
   element.disabled = true;
-  element.innerHTML =  `<div><svg xmlns="http://www.w3.org/2000/svg" width="${loaderSize}em" height="${loaderSize}em" viewBox="0 0 24 24"><path fill="currentColor" d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg></div>`
-}
+  element.innerHTML = `<div><svg xmlns="http://www.w3.org/2000/svg" width="${loaderSize}em" height="${loaderSize}em" viewBox="0 0 24 24"><path fill="currentColor" d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg></div>`;
+};
 const stopLoaderAnimation = (element, text) => {
-  element.innerHTML =  text
-  element.disabled = false
+  element.innerHTML = text;
+  element.disabled = false;
+};
+
+function formatPrice(price, currency = "$") {
+  // Convert price to a string and pad with zeros if necessary
+  let priceString = String(price).padStart(3, "0");
+
+  // Insert a decimal point two positions from the end
+  priceString = priceString.slice(0, -2) + "." + priceString.slice(-2);
+
+  // Return the formatted price with currency symbol
+  return currency + priceString;
 }
 
-window.loaderAnimation = loaderAnimation
-window.stopLoaderAnimation = stopLoaderAnimation
+window.loaderAnimation = loaderAnimation;
+window.stopLoaderAnimation = stopLoaderAnimation;
+window.formatPrice = formatPrice;
+
+// release date
+
+document.querySelectorAll(".release_date").forEach((el) => {
+  console.log(el.getAttribute("data-date"));
+  const countDownDate = new Date(el.getAttribute("data-date")).getTime();
+  // Update the count down every 1 second
+  let x = setInterval(function () {
+    // Get today's date and time
+    let now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    let distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    el.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      el.innerHTML = "EXPIRED";
+    }
+  }, 1000);
+});

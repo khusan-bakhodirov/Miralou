@@ -1,6 +1,10 @@
 {{ "product.css" | asset_url | stylesheet_tag }}
 <script src="{{ 'product.js' | asset_url }}" defer></script>
 
+{% if product.metafields.custom.release_date.value %}
+  {% assign event_date = product.metafields.custom.release_date.value.release_date | date: '%s' %}
+  {% assign today = 'now' | date: '%s' %}
+{% endif %}
 <section class="product">
   <div class="overlay">
     <div class="close">{% render 'close-icon' %}</div>
@@ -65,6 +69,10 @@
             <h5 class="heading-5 uppercase product_title">
               {{ product.title }}
             </h5>
+            {% if event_date > today %}
+              <h4 class="heading-4 release_date" data-date="{{product.metafields.custom.release_date.value.release_date | date: "%b %-d, %Y %H:%M:%S" }}"></h4>
+              <h6 class="heading-5 red">Available soon</h6>
+            {% endif %}
             <h5 class="heading-5 red product_price flex gap-1 items-center">
               {% if product.selected_or_first_available_variant.compare_at_price %}
                 <span class="sale_price prodcut_compare-price">
@@ -95,16 +103,23 @@
             </div>
             <div class="flex gap-2 product_button-container">
 
-              <button type="submit" class="button button_secondary product_btn">
-                {% if product.available %}
-                  <span class="product_btn-text">add to cart</span>
-                  <span class="button_spinner" style="display: none;">
-                    {% render 'spinner-icon' %}
-                  </span>
-                {% else %}
-                  out of stock
-                {% endif %}
-              </button>
+              {% if product.metafields.custom.release_date.value %}
+              {% else %}
+                <button
+                  type="submit"
+                  {% if product.available %}
+                  {% else %}
+                  disabled
+                  {% endif %}
+                  class="button button_secondary product_btn">
+                  {% if product.available %}
+                    add to cart
+                  {% else %}
+                    out of stock
+                  {% endif %}
+                </button>
+              {% endif %}
+
               <button type="button" class="button button_wishlist button_outline product_btn">Add to Whishlist</button>
               <input
                 type="hidden"

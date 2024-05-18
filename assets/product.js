@@ -10,16 +10,7 @@ const price = document.querySelector('.product_exact-price')
 const compare_price = document.querySelector('.prodcut_compare-price');
 
 
-function formatPrice(price, currency = "$") {
-  // Convert price to a string and pad with zeros if necessary
-  let priceString = String(price).padStart(3, "0");
 
-  // Insert a decimal point two positions from the end
-  priceString = priceString.slice(0, -2) + "." + priceString.slice(-2);
-
-  // Return the formatted price with currency symbol
-  return currency + priceString;
-}
 
 // handle description toggling
 
@@ -65,9 +56,9 @@ product_variants.forEach((variant) => {
     });
     variant.querySelector("input").setAttribute("name", "id");
     variant.classList.add("selected_variant");
-    price.textContent = formatPrice(variant.getAttribute("data-price"));
+    price.textContent = window.formatPrice(variant.getAttribute("data-price"));
     if (compare_price) {
-      compare_price.textContent = formatPrice(
+      compare_price.textContent = window.formatPrice(
         variant.getAttribute("data-compare")
       );
     }
