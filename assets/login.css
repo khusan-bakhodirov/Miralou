@@ -1,0 +1,73 @@
+.login {
+  padding: 5rem 0;
+}
+.login.hidden {
+    display: none;
+}
+.forgot_password {
+    display: block;
+    padding: 5rem 0;
+
+}
+.forgot_password.hidden {
+    display: none;
+}
+.login_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_card {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 6rem 3.5rem;
+  border-radius: 1rem;
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.login_input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.login_input-container input {
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid var(--white);
+  background-color: transparent;
+  padding: 0.5rem 0;
+  color: var(--white);
+}
+
+.login_input-container input::placeholder {
+  color: var(--secondary-gray);
+}
+
+.login_forgot-password {
+  align-self: flex-end;
+  text-decoration: underline;
+}
+
+.login_forgot-password a {
+    color: var(--white);
+}
+
+.login_signup {
+    align-self: flex-start;
+    display: flex;
+    gap: 0.5rem;
+}
+.login_btn {
+    width: 100%;
+}
+.login_signup a {
+    color: var(--white);
+    text-decoration: underline;
+}
