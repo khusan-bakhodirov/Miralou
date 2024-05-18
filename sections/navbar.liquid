@@ -62,6 +62,10 @@
 
         {% render 'heart-icon' %}
       </a>
+      <a href="{{routes.account_login_url}}">
+
+        {% render 'user-icon' %}
+      </a>
 
      {% if settings.cart_type == 'default' %}
       <a href="{{routes.cart_url}}" class="navbar_cart">
