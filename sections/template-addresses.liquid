@@ -1,3 +1,146 @@
 {{'addresses.css' |  asset_url |  stylesheet_tag}}
-
+<script src="{{'address.js' |  asset_url}}" defer></script>
 {% render 'breadcrumbs', page-title: 'addresses' %}
+
+<section class="addresses">
+    <div class="container">
+        <a href="{{routes.account_url}}" class="heading-5 address_back-btn">{% render 'arrowLeft-icon' %} back </a>
+
+    <div class="address_container">
+        <div class="address_default">
+            <div>
+                <h5 class="heading-4 uppercase">default addresses</h5>
+               <div class="flex flex-col gap-1 mt-1">
+                {% for address in customer.addresses %}
+                    <div class="address_default-item">
+                        <div class="paragraph-2">
+                            {{address |  format_address}}
+                        </div>
+                        <form method="post"
+                        action="/account/addresses/{{ address.id }}" class="flex gap-1 mt-1">
+                            <button type="button" class="button button_secondary address_btn edit_btn">edit</button>
+                            <button  class="button button_primary address_btn">delete</button>
+                            <input type="hidden" name="_method" value="delete">
+                        </form>
+                       {% form form 'customer_address', address%}
+                            <div class="edit_form">
+                                <div class="address_input-container">
+                                    <label class="paragraph-3" for="first_name">First Name</label>
+                                    <input class="address_input" type="text" placeholder="your first name" value="{{address.first_name}}" name="address[first_name]">
+                                    </div>
+                            
+                                    <div class="address_input-container">
+                                    <label class="paragraph-3" for="last_name">Last Name</label>
+                                    <input class="address_input" type="text" placeholder="your last name" value="{{address.last_name}}" name="address[last_name]">
+                                    </div>
+                            
+                                    <div class="address_input-container">
+                                    <label class="paragraph-3" for="company">Company</label>
+                                    <input class="address_input" type="text" placeholder="your company" value="{{address.company}}" name="address[company]">
+                                    </div>
+                                    
+                                    <div class="address_input-container">
+                                    <label class="paragraph-3" for="address1">Address 1</label>
+                                    <input class="address_input" type="text" value="{{address.address1}}" placeholder="your address" name="address[address1]">
+                                    </div>
+                            
+                                    <div class="address_input-container">
+                                    <label class="paragraph-3" for="address2">Address 2</label>
+                                    <input class="address_input" type="text" value="{{address.address2}}" placeholder="your address" name="address[address2]">
+                                    </div>
+                            
+                                    <div class="address_input-container">
+                                    <label class="paragraph-3" for="city">City</label>
+                                    <input class="address_input" type="text" value="{{address.city}}" placeholder="your city" name="address[city]">
+                                    </div>
+                            
+                                    <div class="address_input-container">
+                                    <label class="paragraph-3" for="country">Country</label>
+                                    <input class="address_input" value="{{address.country}}" name="address[country]">
+                                    </div>
+                                    
+                                    <div class="address_input-container">
+                                    <label class="paragraph-3" for="province">Province</label>
+                                    <input class="address_input" value="{{address.province}}" name="address[province]">
+                                    </div>
+                                    
+                                    <div class="address_input-container">
+                                    <label class="address_label" for="zip">ZIP/Postal Code</label>
+                                    <input class="address_input" value="{{address.zip}}" type="text" placeholder="your zip code" name="address[zip]">
+                                    </div>
+                                    
+                                    <div class="address_input-container">
+                                    <label class="address_label" for="phone">Phone Number</label>
+                                    <input class="address_input" type="tel" value="{{address.phone}}" placeholder="your phone number" name="address[phone]">
+                                    </div>
+                                    <button class="button button_primary address_form-btn mt-1">Submit</button>
+        
+                            </div>
+                        {% endform %}
+                    </div>
+                {% endfor %}
+               </div>
+            </div>
+           </div>
+           <div class="address_new">
+            <h5 class="heading-4">
+                Add new Address
+            </h5>
+       {% form 'customer_address', customer.new_address %}
+        <div class="address_form">
+        <div class="address_input-container">
+        <label class="paragraph-3" for="first_name">First Name</label>
+        <input class="address_input" type="text" placeholder="your first name" name="address[first_name]">
+        </div>
+
+        <div class="address_input-container">
+        <label class="paragraph-3" for="last_name">Last Name</label>
+        <input class="address_input" type="text" placeholder="your last name" name="address[last_name]">
+        </div>
+
+        <div class="address_input-container">
+        <label class="paragraph-3" for="company">Company</label>
+        <input class="address_input" type="text" placeholder="your company" name="address[company]">
+        </div>
+        
+        <div class="address_input-container">
+        <label class="paragraph-3" for="address1">Address 1</label>
+        <input class="address_input" type="text" placeholder="your address" name="address[address1]">
+        </div>
+
+        <div class="address_input-container">
+        <label class="paragraph-3" for="address2">Address 2</label>
+        <input class="address_input" type="text" placeholder="your address" name="address[address2]">
+        </div>
+
+        <div class="address_input-container">
+        <label class="paragraph-3" for="city">City</label>
+        <input class="address_input" type="text" placeholder="your city" name="address[city]">
+        </div>
+
+        <div class="address_input-container">
+        <label class="paragraph-3" for="country">Country</label>
+        <input class="address_input" name="address[country]">
+        </div>
+        
+        <div class="address_input-container">
+        <label class="paragraph-3" for="province">Province</label>
+        <input class="address_input" name="address[province]">
+        </div>
+        
+        <div class="address_input-container">
+        <label class="address_label" for="zip">ZIP/Postal Code</label>
+        <input class="address_input" type="text" placeholder="your zip code" name="address[zip]">
+        </div>
+        
+        <div class="address_input-container">
+        <label class="address_label" for="phone">Phone Number</label>
+        <input class="address_input" type="tel" placeholder="your phone number" name="address[phone]">
+        </div>
+    </div>
+    <button class="button button_primary mt-1 address_form-btn">Submit</button>
+       {% endform %}
+    </div>
+    </div>
+</div>
+</section>
