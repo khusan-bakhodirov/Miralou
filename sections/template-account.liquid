@@ -1,1 +1,66 @@
+{{'account.css'  |  asset_url |  stylesheet_tag}}
+<script src="{{ 'account.js' | asset_url }}" defer></script>
 {% render 'breadcrumbs', page-title: 'account' %}
+<section class="account">
+    <div class="container account_container">
+        <div class="account_sidebar">
+            <button data-key="0" class="account_sidebar-btn active paragraph-2">order history</button>
+            <button data-key="1" class="account_sidebar-btn paragraph-2">account details</button>
+            <a href="{{routes.account_addresses_url}}" data-key="2" class="account_sidebar-btn paragraph-2">addresses</a>
+            <a href="{{routes.account_logout_url}}" class="account_sidebar-btn paragraph-2">log out</a>
+        </div>
+        <div class="account_main">
+            <div>
+                <h4 class="heading-4 red">
+                    Order history
+                </h4>
+                <table class="order-history mt-3">
+                    <thead>
+                    <tr class="paragraph-3">
+                        <th>Order</th>
+                        <th>Date</th>
+                        <th>Payment Status</th>
+                        <th>Fulfillment Status</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in customer.orders %}
+                    <tr class="paragraph-3">
+                        <td><a href="{{ order.url }}">{{ order.name }}</a></td>
+                        <td>{{ order.created_at | date: "%B %d, %Y" }}</td>
+                        <td>{{ order.financial_status }}</td>
+                        <td>{{ order.fulfillment_status | default: "Unfulfilled" }}</td>
+                        <td>{{ order.total_price | money }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+              </div>
+            <div class="hidden">
+                <h4 class="heading-4 red">
+                    Account details
+                </h4>
+                <div class="details_container mt-2">
+                    <div class="details_input-container">
+                        <label class="paragraph-2" for="firstname">First name</label>
+                        <input type="text" disabled value="{{customer.first_name}}">
+                    </div>
+                    <div class="details_input-container">
+                        <label class="paragraph-2" for="lastname">Last name</label>
+                        <input type="text" disabled value="{{customer.last_name}}">
+                    </div>
+                    <div class="details_input-container">
+                        <label class="paragraph-2" for="email">Email address</label>
+                        <input type="email" disabled value="{{customer.email}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% comment %} 
+    
+
+ {% endcomment %}
