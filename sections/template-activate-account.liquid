@@ -1,0 +1,30 @@
+{{'activate-account.css' |  asset_url |  stylesheet_tag}}
+
+{% render 'breadcrumbs', page-title: 'activate account' %}
+
+<section class="activate_account">
+    <div class="container activate_account-container">
+        {% form 'activate_customer_password' %}   
+            <div class="activate_card">
+                <h4 class="heading-4 red uppercase">
+                    Activate account
+                </h4>
+                <div class="activate_input-container">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="customer[password]" placeholder="password">
+                </div>
+              
+                <div class="activate_input-container">
+                    <label for="confirmpassword">Confirm Password</label>
+                    <input type="password" id="confirmpassword" name="customer[password_confirmation]" placeholder="password">
+                </div>
+               
+                <button class="button button_primary activate_btn">Activate Account</button>
+                <div class="signup_login paragraph-4">
+                    <p class="">Already have an account?</p>
+                    <a href="{{routes.account_login_url}}">Log in</a>
+                </div>
+            </div>
+        {% endform %}
+    </div>
+</section>

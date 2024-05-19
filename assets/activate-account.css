@@ -1,0 +1,54 @@
+.activate_account {
+    padding: 5rem 0;
+  }
+  
+  .activate_account-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .activate_card {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 6rem 3.5rem;
+    border-radius: 1rem;
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  .activate_input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  
+  .activate_input-container input {
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid var(--white);
+    background-color: transparent;
+    padding: 0.5rem 0;
+    color: var(--white);
+  }
+  
+  .activate_input-container input::placeholder {
+    color: var(--secondary-gray);
+  }
+.activate_btn {
+    width: 100%;
+}
+
+.signup_login {
+    align-self: flex-start;
+    display: flex;
+    gap: 0.5rem;
+}
+.signup_login a {
+    color: var(--white);
+    text-decoration: underline;
+}
