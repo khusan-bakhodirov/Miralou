@@ -74,7 +74,7 @@
               <h6 class="heading-5 red">Available soon</h6>
             {% endif %}
             <h5 class="heading-5 red product_price flex gap-1 items-center">
-              {% if product.selected_or_first_available_variant.compare_at_price %}
+              {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
                 <span class="sale_price prodcut_compare-price">
                   {{ product.selected_or_first_available_variant.compare_at_price | money }}
                 </span>
@@ -111,7 +111,7 @@
                   {% else %}
                   disabled
                   {% endif %}
-                  class="button button_secondary product_btn">
+                  class="button button_secondary product_btn add_btn">
                   {% if product.available %}
                     add to cart
                   {% else %}

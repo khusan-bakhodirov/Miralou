@@ -14,7 +14,8 @@
                 <h4 class="heading-4 red">
                     Order history
                 </h4>
-                <table class="order-history mt-3">
+                {% if customer.orders_count > 0 %}
+                    <table class="order-history mt-3">
                     <thead>
                     <tr class="paragraph-3">
                         <th>Order</th>
@@ -36,6 +37,9 @@
                     {% endfor %}
                     </tbody>
                 </table>
+                {% else %}
+                    <p class="paragraph-3 mt-1">You don't have any order</p>
+                {% endif %}
               </div>
             <div class="hidden">
                 <h4 class="heading-4 red">

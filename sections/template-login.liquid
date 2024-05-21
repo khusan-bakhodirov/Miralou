@@ -5,6 +5,11 @@
 <section class="login">
     <div class="container login_container">
         {% form 'customer_login' %}   
+            {% if form.errors %}
+                <div class="form_error paragpraph-3">
+                    {{form.errors |  default_errors}}
+                </div>
+            {% endif %}
             <div class="login_card">
                 <h4 class="heading-4 red uppercase">
                     Login into account

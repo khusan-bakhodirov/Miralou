@@ -114,6 +114,10 @@
 .sale_price {
   text-decoration: line-through;
 }
+
+.add_btn:disabled {
+    cursor: not-allowed;
+}
 /* SWIPER JS */
 .swiper-button-next {
   position: absolute;

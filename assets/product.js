@@ -57,10 +57,13 @@ product_variants.forEach((variant) => {
     variant.querySelector("input").setAttribute("name", "id");
     variant.classList.add("selected_variant");
     price.textContent = window.formatPrice(variant.getAttribute("data-price"));
-    if (compare_price) {
+    console.log(Number(variant.getAttribute("data-compare")) > Number(variant.getAttribute("data-price")))
+    if (compare_price && Number(variant.getAttribute("data-compare")) > Number(variant.getAttribute("data-price"))) {
       compare_price.textContent = window.formatPrice(
         variant.getAttribute("data-compare")
       );
+    }else {
+      compare_price.textContent = '';
     }
   });
 });

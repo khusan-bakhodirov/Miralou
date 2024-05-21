@@ -5,7 +5,7 @@
 {% assign today = 'now' | date: '%s' %}
 <div class="flex flex-col items-center gap-1 product_item">
     <div class="product_img-container">
-        <form  action="/cart/add"
+     <form  action="/cart/add"
         
         method="post" class="{% if settings.cart_type == 'default' %}
             product_overlay-form
@@ -18,8 +18,7 @@
             </h5>
             <select name="variant" class="product_variant-select">
                 {% for variant in product-item.variants %}
-                    <option class="product_variant-option" {% if forloop.index == 1 %}
-                        {% endif %} data-compare="{{variant.compare_at_price}}" data-price="{{variant.price}}"
+                    <option class="product_variant-option" data-compare="{{variant.compare_at_price}}" data-price="{{variant.price}}"
                     value="{{variant.id}}">{{variant.title}}</option>
                 {% endfor %}
             </select>
@@ -29,15 +28,30 @@
             value="{{customer.id}}">
             <input type="hidden" name="id" value="{{product-item.first_available_variant.id}}">
             <h6 class="heading-6 red flex gap-1 items-center product_overlay-price">
-                <span class="sale_price">
+                <span class="sale_price modal_sale-price">
                     {% if product-item.compare_at_price > product-item.price %}
                         {{product-item.selected_or_first_available_variant.compare_at_price | money}}
                     {% endif %}
                     </span>
-                    {{product-item.price |  money }}
+                    <span class="actual_price">
+                        {{product-item.selected_or_first_available_variant.price |  money }}
+                    </span>
             </h6>
             <input type="hidden" name="quantity" value="1">
-            <button class="button button_dark">add to card</button>
+           {% if event_date > today %}
+
+            {% else %}    
+            <button {% if product-item.available %}
+                {% else %}
+                    disabled
+                {% endif %} class="button button_dark add_btn">
+                    {% if product-item.available %}
+                        add to card
+                        {% else %}
+                            out of stock
+                    {% endif %}
+                </button>
+           {% endif %}
             <a role="button" href="{{product-item.url}}" class="button button_dark">view product</a>
 
         </form>
@@ -47,6 +61,11 @@
         {% if product-item.compare_at_price > product-item.price%}    
             <p class="img_decoration on_sale">on sale</p>   
         {% endif %}
+        {% for tag in product-item.tags %}
+            {% if tag == 'bestseller'%}    
+                <p class="img_decoration bestseller">bestseller</p>   
+            {% endif %}
+        {% endfor %}
         {% if event_date > today %}
             <p class="img_decoration available_soon">avialable soon</p>   
         {% endif %}
@@ -65,7 +84,7 @@
                     {{product-item.selected_or_first_available_variant.compare_at_price | money}}
                 {% endif %}
                 </span>
-                {{product-item.price |  money }}
+                {{product-item.selected_or_first_available_variant.price |  money }}
             </h6>
     {% endif %}
     <a role="button" href="{{product-item.url}}" class="button button_dark">view product</a>

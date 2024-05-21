@@ -32,8 +32,10 @@
   background-color: var(--primary-green);
   color: var(--white);
 }
+.bestseller {
+  background-color: var(--primary-yellow);
+}
 .available_soon {
-  padding: 0.5rem 3rem !important;
   background-color: #1E90FF;
   color: var(--white);
 }
@@ -71,6 +73,10 @@
 
 .product_overlay-container.active {
   transform: translateY(0%);
+}
+.add_btn:disabled {
+    cursor: not-allowed;
+    background-color: var(--secondary-gray);
 }
 @media screen and (max-width: 768px) {
   .product_item-image {

@@ -4,7 +4,12 @@
 
 <section class="register">
     <div class="container register_container">
-        {% form 'create_customer' %}   
+        {% form 'create_customer' %}  
+            {% if form.errors %}
+                <div class="form_error">
+                    {{form.errors |  default_errors}}
+                </div>
+            {% endif %} 
             <div class="register_card">
                 <h4 class="heading-4 red uppercase">
                     Register account

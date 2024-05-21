@@ -13,11 +13,14 @@ document.querySelectorAll('.product_img-container').forEach(el => {
 document.querySelectorAll('.product_variant-select').forEach((el) => {
     el.addEventListener('change', () => {
           el.closest('.product_overlay-container').querySelector('input[name="id"]').value = el.value
-          el.closest('.product_overlay-container').querySelector('.product_overlay-price').textContent = window.formatPrice(el.querySelector(`.product_variant-option[value="${CSS.escape(el.value)}"]`).getAttribute("data-price"));
-          if (el.closest('.product_overlay-container').querySelector('sale_price')) {
-            el.closest('.product_overlay-container').querySelector('sale_price').textContent = window.formatPrice(
-                el.querySelector(`.product_variant-option[value="${CSS.escape(el.value)}"]`).getAttribute('data-compare')
-            );
+          const price = el.querySelector(`.product_variant-option[value="${CSS.escape(el.value)}"]`).getAttribute("data-price");
+          const compare_price = el.querySelector(`.product_variant-option[value="${CSS.escape(el.value)}"]`).getAttribute('data-compare')
+          el.closest('.product_overlay-container').querySelector('.actual_price').textContent = window.formatPrice(price);
+          if (el.closest('.product_overlay-container').querySelector('.sale_price') && compare_price > price) {
+            console.log('hello')
+            el.closest('.product_overlay-container').querySelector('.sale_price').textContent = window.formatPrice(compare_price);
+          }else {
+            el.closest('.product_overlay-container').querySelector('.sale_price').textContent = '';
           }
     })
 })
