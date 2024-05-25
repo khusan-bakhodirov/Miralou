@@ -14,7 +14,7 @@
                 <h4 class="heading-4 red">
                     Order history
                 </h4>
-                {% if customer.orders_count > 0 %}
+                {% if customer.orders != blank %}
                     <table class="order-history mt-3">
                     <thead>
                     <tr class="paragraph-3">
