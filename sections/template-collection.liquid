@@ -21,6 +21,11 @@
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
           </select>
+          {% for filter in collection.filters %}
+            {% for value in filter.active_values %}
+              <h3>{{value}}</h3>
+            {% endfor %}
+          {% endfor %}
         </div>
         <p class="paragraph-5 ml-1">
           Showing {{ start_of_number_of_displayed_products }}-{% if paginate.current_page == paginate.pages %}
