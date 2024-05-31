@@ -4,6 +4,9 @@
 
 .sorting_container {
     margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .collection_sort-select {
@@ -12,3 +15,116 @@
     width: 6.5rem;
     background: transparent;
 }
+
+/* Container Styles */
+.filter-form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+  }
+  
+  .filter-details {
+  }
+  
+  .filter-summary {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .filter-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+
+  .filter-details[open] .filter-summary {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .filter-body {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    background: var(--white);
+    top: 3rem;
+    left: 0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Filter Value Styles */
+  .filter-options {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+ 
+  
+  .filter-label {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .filter-apply {
+    margin-top: 10px;
+  }
+  
+  .filter-apply-button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  
+  /* Price Range Styles */
+  .filter-group-display__price-range {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .filter-group-display__price-range-from,
+  .filter-group-display__price-range-to {
+    flex: 1;
+    margin-right: 5px;
+  }
+  
+  /* Reset and Clear All Links */
+  .selected-filters {
+    display: flex;
+    gap: 1rem;
+    margin-left: 5px;
+  }
+  /* Selected Filters */
+  .selected-filters p {
+    margin: 5px 0;
+  }
+  
+  .selected-filter {
+    color: #ff0000;
+  }
+  
+  .selected-filter:hover {
+    text-decoration: underline;
+  }
+  
