@@ -55,3 +55,14 @@ let swiperCart = new Swiper(".cartSwiper", {
 
   loop: true,
 });
+
+
+document.querySelectorAll('.cart_item').forEach((el) => {
+  const quantity = el.getAttribute('data-quantity')
+  const inventory_quantity = el.getAttribute('data-inventory-quantity')
+  console.log(inventory_quantity, quantity)
+  if(inventory_quantity < quantity) {
+    const id = el.querySelector('button[data-change="decrease"]').getAttribute('data-key');
+    window.cart.decrease(id, inventory_quantity);
+  }
+})

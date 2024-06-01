@@ -24,7 +24,7 @@
             {% else %}
                 
             {% for item in cart.items %}
-                <div class="cart_item">
+                <div class="cart_item" data-quantity="{{item.quantity}}" data-inventory-quantity="{{item.variant.inventory_quantity}}">
             <div>
                 <img class="cart_item-img" src="{{item.image |  image_url }}" width="auto" height="auto" alt="">
             </div>
@@ -32,6 +32,7 @@
                 <h6 class="heading-6 ">{{item.title |  truncate: 16}}</h6>
                 <h6 class="heading-6  secondary-gray ">Size: {{item.variant.title}}</h6>
                 <h6 class="heading-6 red">{{item.final_price |  money}}</h6>
+               
             </div>
             <div class="flex items-center product_item-quantity">
                 <button
@@ -42,7 +43,11 @@
                 <div class="product_quantity">
                     {{item.quantity}}
                 </div>
+               
                 <button
+                {% if item.variant.inventory_quantity == item.quantity %}
+                    disabled
+                {% endif %}
                     type="button"
                   class="quantity-change"
                   data-key="{{item.variant_id}}"
@@ -53,6 +58,9 @@
               {% render 'close-icon' %}
             </div>
            </div>
+           {% if item.variant.inventory_quantity == item.quantity %}
+            <h6 class="paragraph-5 red">You can't exceed,there is only {{item.variant.inventory_quantity}} in the stock</h6>
+       {% endif %}
             {% endfor %}
         {% endif %}
        {% endform %}
