@@ -1,0 +1,19 @@
+{{'search.css' |  asset_url |  stylesheet_tag}}
+<script src="{{ 'search.js' | asset_url }}" defer></script>
+
+
+<div class="predictive_search">
+    <div class="search_input-container">
+        <input class="search_input" type="text" placeholder="search">
+        <span class="search_icon">
+            {% render 'search-icon' %}
+        </span>
+        <div class="predictive_search-container">
+
+    </div>
+    </div>
+    <div class="close_icon">
+        {% render 'close-icon' %}
+    </div>
+    
+</div>
