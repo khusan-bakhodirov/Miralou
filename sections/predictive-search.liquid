@@ -36,7 +36,7 @@
               <a href="{{ query.url }}" class="predictive-search__item link link--text" tabindex="-1">
                 <div class="predictive-search__item-content predictive-search__item-content--centered">
                   <p
-                    class="predictive-search__item-heading predictive-search__item-query-result h5"
+                    class="predictive-search__item-heading predictive-search__item-query-result paragraph-5"
                     aria-label="{{ query.text }}"
                   >
                     {{ query.text}}
@@ -54,7 +54,7 @@
             >
               <a href="{{ collection.url }}" class="predictive-search__item link link--text" tabindex="-1">
                 <div class="predictive-search__item-content predictive-search__item-content--centered">
-                  <p class="predictive-search__item-heading h5">{{ collection.title | escape }}</p>
+                  <p class="predictive-search__item-heading paragraph-5">{{ collection.title | escape }}</p>
                 </div>
               </a>
             </li>
@@ -68,7 +68,7 @@
           id="predictive-search-pages-desktop"
           class="predictive-search__heading heading-5 red text-body caption-with-letter-spacing"
         >
-          Pages
+        Pages
         </h2>
         <ul
           id="predictive-search-results-pages-list-desktop"
@@ -85,7 +85,7 @@
             >
               <a href="{{ page.url }}" class="predictive-search__item link link--text" tabindex="-1">
                 <div class="predictive-search__item-content predictive-search__item-content--centered">
-                  <p class="predictive-search__item-heading h5">{{ page.title | escape }}</p>
+                  <p class="predictive-search__item-heading paragraph-5">{{ page.title | escape }}</p>
                 </div>
               </a>
             </li>
@@ -99,7 +99,7 @@
             >
               <a href="{{ article.url }}" class="predictive-search__item link link--text" tabindex="-1">
                 <div class="predictive-search__item-content predictive-search__item-content--centered">
-                  <p class="predictive-search__item-heading h5">{{ article.title | escape }}</p>
+                  <p class="predictive-search__item-heading paragraph-5">{{ article.title | escape }}</p>
                 </div>
               </a>
             </li>
@@ -157,7 +157,7 @@
                           {{ product.vendor }}
                         </div>
                       {%- endif -%}
-                      <p class="predictive-search__item-heading h5">{{ product.title | escape }}</p>
+                      <p class="predictive-search__item-heading paragraph-5">{{ product.title | escape }}</p>
                     </div>
                   </a>
                 </li>
@@ -188,7 +188,7 @@
                 >
                   <a href="{{ page.url }}" class="predictive-search__item link link--text" tabindex="-1">
                     <div class="predictive-search__item-content predictive-search__item-content--centered">
-                      <p class="predictive-search__item-heading h5">{{ page.title | escape }}</p>
+                      <p class="predictive-search__item-heading paragraph-5">{{ page.title | escape }}</p>
                     </div>
                   </a>
                 </li>
@@ -216,9 +216,13 @@
       </div>
     {%- endif -%}
 
-    {% comment %} {%- render 'spinner-icon',  -%} {% endcomment %}
 
-    
+    <button class="predictive_search-search">
+      <p class="paragraph-5">Search for <b>"{{predictive_search.terms}}"</b></p>
+      <p class="right_icon">
+        {% render 'arrowRight-icon' %}
+      </p>
+    </button>    
   </div>
 
  

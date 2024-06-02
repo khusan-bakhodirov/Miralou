@@ -91,6 +91,10 @@
   background: var(--white);
 }
 
+#search {
+  cursor: pointer;
+}
+
 .search_form.active {
   display: flex;
 }

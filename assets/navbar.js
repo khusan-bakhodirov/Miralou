@@ -25,8 +25,9 @@ if(document.querySelector('.navbar_cart')) {
 }
 
 searchIcon.addEventListener('click', () => {
-  console.log('hell')
   searchForm.classList.add('active');
+  document.querySelector('.search_input').focus();
+ 
 })
 
 closeIcon.addEventListener('click', () => {
