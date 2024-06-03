@@ -2,12 +2,14 @@
 <script src="{{ 'search.js' | asset_url }}" defer></script>
 
 
-<div class="predictive_search">
+<form action="{{ routes.search_url }}" method="get" role="search" class="predictive_search">
     <div class="search_input-container">
-        <input class="search_input" type="text" placeholder="search">
-        <span class="search_icon">
+        <input class="search_input"   type="search"
+        name="q" type="text" placeholder="search">
+        <input type="hidden" name="options[prefix]" value="last">
+        <button type="submit" class="search_icon">
             {% render 'search-icon' %}
-        </span>
+        </button>
         <div class="predictive_search-container">
 
     </div>
@@ -16,4 +18,4 @@
         {% render 'close-icon' %}
     </div>
     
-</div>
+</form>
